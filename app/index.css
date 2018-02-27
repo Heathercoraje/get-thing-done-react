@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #393939;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  color: white;
+}
+
+.leftList {
+  height: 70%;
+}
+
+.leftAdd {
+  height: 30%;
+  width: 100%;
+}
+
+.left {
+  color: white;
+}
+.Button {
+  float: right;
+  bottom: 10px;
+  right: 10px;
+}
+
+.rightList {
+  height: 70%;
+}
+
+.rightAdd {
+  height: 30%;
+}
+
+.strike {
+  color: red;
+}
