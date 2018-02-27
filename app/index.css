@@ -2,7 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #393939;
+  background-image: url('https://images.unsplash.com/photo-1475796258459-4c4a9d5c8d15?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7b27de68d2932ada87028e063c3f5fe5&auto=format&fit=crop&w=891&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 h1,
