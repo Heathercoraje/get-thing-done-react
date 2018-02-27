@@ -1,8 +1,8 @@
-# get-thing-done-react :white_check_mark:
+# Get-Things-Done-react :white_check_mark:
 
-GetThingsDone is a simple Todo application.
+Get Things Done is a simple Todo application.
 
-GetThingsDone offers simple UI on beautiful background image with several functions to manage a todo list.
+Get Things Done offers simple UI on beautiful background image with several functions to manage a todo list.
 
 #### User can ...
 
