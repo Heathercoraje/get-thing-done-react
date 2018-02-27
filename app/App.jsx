@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import CategoryList from "./CategoryList";
-import FormCategory from "./FormCategory";
-import TodoList from "./TodoList";
-import FormTodo from "./FormTodo";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import CategoryList from '../components/CategoryList';
+import FormCategory from '../components/FormCategory';
+import TodoList from '../components/TodoList';
+import FormTodo from '../components/FormTodo';
 
 const Main = styled.div`
   border-radius: 20px;
@@ -45,8 +45,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{ id: 0, todo: "study" }],
-      categories: [{ id: 0, category: "Today" }]
+      todos: [{ id: 0, todo: 'study' }],
+      categories: [{ id: 0, category: 'Today' }]
     };
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
@@ -68,9 +68,7 @@ class App extends Component {
   }
   addTodo(event) {
     const newTodo = {
-      id: this.state.todos.length
-        ? this.state.todos[this.state.todos.length - 1].id + 1
-        : 0,
+      id: this.state.todos.length ? this.state.todos[this.state.todos.length - 1].id + 1 : 0,
       todo: event.target[0].value
     };
     const stateTodos = this.state.todos;
@@ -81,12 +79,12 @@ class App extends Component {
   }
   deleteCategory(event) {
     const currentCategories = this.state.categories;
-    const newCategories = currentCategories.filter(category => {
+    const newCategories = currentCategories.filter((category) => {
       console.log(category.id, event.target.value);
       console.log(this.state.categories);
       return category.id !== Number(event.target.value);
     });
-    console.log("before", currentCategories);
+    console.log('before', currentCategories);
     this.setState({
       categories: newCategories
     });
@@ -95,7 +93,7 @@ class App extends Component {
     const newTodos = this.state.todos;
     newTodos.forEach((todo, index) => {
       if (todo.id === Number(event.target.value)) {
-        return newTodos.splice(index, 1); //this mutate the array itself
+        return newTodos.splice(index, 1); // this mutate the array itself
       }
       return 0;
     });
@@ -109,10 +107,7 @@ class App extends Component {
       <Main>
         <Left>
           <h1 className="title">React Todo</h1>
-          <CategoryList
-            categories={this.state.categories}
-            deleteCategory={this.deleteCategory}
-          />
+          <CategoryList categories={this.state.categories} deleteCategory={this.deleteCategory} />
           <FormCategory add={this.addCategory} />
         </Left>
         <Right>
