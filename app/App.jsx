@@ -45,21 +45,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{ id: 0, todo: 'study' }],
-      categories: [{ id: 0, category: 'Today' }]
+      todos: [[{ category: 'Today', id: 0, todo: '' }]],
+      categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }]
     };
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.addCategory = this.addCategory.bind(this);
     this.deleteCategory = this.deleteCategory.bind(this);
+    this.changeCate = this.changeCate.bind(this);
   }
   addCategory(name) {
-    const newCategory = {
-      id: this.state.categories.length
-        ? this.state.categories[this.state.categories.length - 1].id + 1
-        : 0,
-      category: name
-    };
+    const newCategory = [
+      {
+        id: this.state.categories.length
+          ? this.state.categories[this.state.categories.length - 1].id + 1
+          : 0,
+        category: name
+      }
+    ];
     const stateCategories = this.state.categories;
     stateCategories.push(newCategory);
     this.setState({
@@ -68,14 +71,17 @@ class App extends Component {
   }
   addTodo(event) {
     const newTodo = {
-      id: this.state.todos.length ? this.state.todos[this.state.todos.length - 1].id + 1 : 0,
+      category: 'Today',
+      id: this.state.todos[0].length ? this.state.todos[this.state.todos.length - 1].id + 1 : 0,
       todo: event.target[0].value
     };
     const stateTodos = this.state.todos;
-    stateTodos.push(newTodo);
+    const currentTodos = this.state.todos[0];
+    currentTodos.push(newTodo);
     this.setState({
       todos: stateTodos
     });
+    console.log(this.state);
   }
   deleteCategory(event) {
     const currentCategories = this.state.categories;
@@ -102,16 +108,27 @@ class App extends Component {
     });
   }
 
+  changeCate(event) {
+    console.log(event.target.id);
+  }
   render() {
     return (
       <Main>
         <Left>
           <h1 className="title">React Todo</h1>
-          <CategoryList categories={this.state.categories} deleteCategory={this.deleteCategory} />
+          <CategoryList
+            changeCate={this.changeCate}
+            categories={this.state.categories}
+            deleteCategory={this.deleteCategory}
+          />
           <FormCategory add={this.addCategory} />
         </Left>
         <Right>
-          <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo} />
+          <TodoList
+            categories={this.state.categories}
+            todos={this.state.todos}
+            deleteTodo={this.deleteTodo}
+          />
           <FormTodo add={this.addTodo} />
         </Right>
       </Main>
