@@ -1,16 +1,25 @@
-import React from "react";
+import React from 'react';
 
-const TodoList = ({ todos, deleteTodo }) => {
-  const completeTodo = event => {
-    document.getElementById(event.target.value).classList.toggle("strike");
+const TodoList = ({ categories, todos, selectedCategory, deleteTodo }) => {
+  const target = selectedCategory;
+  const targetTodos = todos[target];
+  const name = categories[target].category;
+  console.log('bestie, this is all todos', todos);
+  console.log('bestie, this is todos of selected category', targetTodos);
+
+  const completeTodo = (event) => {
+    document.getElementById(event.target.value).classList.toggle('strike');
   };
-  const Renderlist = todos => {
-    if (todos.length === 1) {
+
+  const Renderlist = (targetTodos) => {
+    console.log(target);
+
+    if (targetTodos.length === 1) {
       return <p>Start adding task </p>;
     }
-    return todos.map(todo => {
+    return targetTodos.map((todo) => {
       if (todo.id === 0) {
-        return "";
+        return '';
       }
       return (
         <div key={todo.id}>
@@ -29,9 +38,9 @@ const TodoList = ({ todos, deleteTodo }) => {
   };
   return (
     <div className="rightList">
-      <h1> Today </h1>
+      <h1>{name}</h1>
       <p> List of things to do today</p>
-      <div>{Renderlist(todos)}</div>
+      <div>{Renderlist(targetTodos)}</div>
     </div>
   );
 };

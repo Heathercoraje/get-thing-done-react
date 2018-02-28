@@ -45,14 +45,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [[{ category: 'Today', id: 0, todo: '' }]],
-      categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }]
+      todos: [
+        [{ id: 0, todo: 'todo app' }, { id: 1, todo: 'yoga' }],
+        [{ id: 0, todo: 'hang out with dad' }, { id: 1, todo: ' hang out with Soo' }]
+      ],
+      categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }],
+      selectedCategory: [0]
     };
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.addCategory = this.addCategory.bind(this);
     this.deleteCategory = this.deleteCategory.bind(this);
-    this.changeCate = this.changeCate.bind(this);
+    this.clickCate = this.clickCate.bind(this);
   }
   addCategory(name) {
     const newCategory = [
@@ -86,11 +90,9 @@ class App extends Component {
   deleteCategory(event) {
     const currentCategories = this.state.categories;
     const newCategories = currentCategories.filter((category) => {
-      console.log(category.id, event.target.value);
       console.log(this.state.categories);
       return category.id !== Number(event.target.value);
     });
-    console.log('before', currentCategories);
     this.setState({
       categories: newCategories
     });
@@ -108,8 +110,12 @@ class App extends Component {
     });
   }
 
-  changeCate(event) {
-    console.log(event.target.id);
+  clickCate(event) {
+    const selected = event.target.id;
+    console.log('I am here, honey!', selected);
+    this.setState({
+      selectedCategory: selected
+    });
   }
   render() {
     return (
@@ -117,8 +123,9 @@ class App extends Component {
         <Left>
           <h1 className="title">React Todo</h1>
           <CategoryList
-            changeCate={this.changeCate}
+            clickCate={this.clickCate}
             categories={this.state.categories}
+            selectedCategory={this.state.selectedCategory}
             deleteCategory={this.deleteCategory}
           />
           <FormCategory add={this.addCategory} />
@@ -127,6 +134,7 @@ class App extends Component {
           <TodoList
             categories={this.state.categories}
             todos={this.state.todos}
+            selectedCategory={this.state.selectedCategory}
             deleteTodo={this.deleteTodo}
           />
           <FormTodo add={this.addTodo} />
