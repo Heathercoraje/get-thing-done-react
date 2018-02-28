@@ -46,7 +46,7 @@ class App extends Component {
     super(props);
     this.state = {
       todos: [
-        [{ id: 0, todo: 'todo app' }, { id: 1, todo: 'yoga' }],
+        [{ id: 0, todo: 'todo app' }, { id: 1, todo: 'yoga' }, { id: 2, todo: 'eat' }],
         [{ id: 0, todo: 'hang out with dad' }, { id: 1, todo: ' hang out with Soo' }]
       ],
       categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }],
@@ -90,28 +90,33 @@ class App extends Component {
     });
     console.log(this.state);
   }
-
   deleteCategory(event) {
     const currentCategories = this.state.categories;
-    const newCategories = currentCategories.filter((category) => {
-      console.log(this.state.categories);
-      return category.id !== Number(event.target.value);
-    });
+    const newCategories = currentCategories.filter(
+      category => category.id !== Number(event.target.value)
+    );
     this.setState({
       categories: newCategories
     });
   }
   deleteTodo(event) {
-    const newTodos = this.state.todos;
-    newTodos.forEach((todo, index) => {
-      if (todo.id === Number(event.target.value)) {
-        return newTodos.splice(index, 1); // this mutate the array itself
-      }
-      return 0;
-    });
-    this.setState({
-      todos: newTodos
-    });
+    alert('hit'); // this is being hit
+    const todoIndex = this.state.selectedCategory;
+    const currentTodos = this.state.todos[todoIndex];
+    console.log('before', currentTodos);
+    const newTodos = currentTodos.filter(todo => todo.id !== Number(event.target.value));
+    console.log('after', newTodos);
+    // targetTodos.forEach((todo, index) => {
+    //   if (todo.id === Number(event.target.value)) {
+    //     return newTodos.splice(index, 1); // this mutate the array itself
+    //   }
+    //   return 0;
+    // });
+    this.state.todos.splice(todoIndex, 1, newTodos);
+    console.log(allTodos);
+    // this.setState({
+    //   todos: allTodos
+    // });
   }
   clickCate(event) {
     const selected = event.target.id;
@@ -136,7 +141,7 @@ class App extends Component {
         <Right>
           <TodoList
             categories={this.state.categories}
-            todos={this.state.todos}
+            todos={this.state.todos[this.state.selectedCategory]}
             selectedCategory={this.state.selectedCategory}
             deleteTodo={this.deleteTodo}
           />
