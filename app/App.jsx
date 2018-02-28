@@ -50,7 +50,7 @@ class App extends Component {
         [{ id: 0, todo: 'hang out with dad' }, { id: 1, todo: ' hang out with Soo' }]
       ],
       categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }],
-      selectedCategory: [0]
+      selectedCategory: 0
     };
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
@@ -59,33 +59,38 @@ class App extends Component {
     this.clickCate = this.clickCate.bind(this);
   }
   addCategory(name) {
-    console.log(name);
     const newCategory = {
       id: this.state.categories.length
         ? this.state.categories[this.state.categories.length - 1].id + 1
         : 0,
       category: name
     };
-    const categoriesUpdated = this.state.categories;
-    categoriesUpdated.push(newCategory);
+    const updateCategories = this.state.categories;
+    updateCategories.push(newCategory);
+    const updateTodos = this.state.todos;
+    updateTodos.push([]);
     this.setState({
-      categories: categoriesUpdated
+      categories: updateCategories,
+      todos: updateTodos
     });
   }
-  addTodo(event) {
+  addTodo(event, selectedCategory) {
+    // this selectedCategory is an index (categories.id)
+    const targetTodo = this.state.todos[selectedCategory];
+    console.log('this is empty array');
     const newTodo = {
-      category: 'Today',
-      id: this.state.todos[0].length ? this.state.todos[this.state.todos.length - 1].id + 1 : 0,
+      id: targetTodo.length === 0 ? 0 : targetTodo[targetTodo.length - 1].id + 1,
       todo: event.target[0].value
     };
-    const stateTodos = this.state.todos;
-    const currentTodos = this.state.todos[0];
-    currentTodos.push(newTodo);
+    targetTodo.push(newTodo);
+    const allTodos = this.state.todos;
+    allTodos.splice(selectedCategory, 1, targetTodo);
     this.setState({
-      todos: stateTodos
+      todos: allTodos
     });
     console.log(this.state);
   }
+
   deleteCategory(event) {
     const currentCategories = this.state.categories;
     const newCategories = currentCategories.filter((category) => {
@@ -110,10 +115,10 @@ class App extends Component {
   }
   clickCate(event) {
     const selected = event.target.id;
-    console.log('I am here, honey!', selected);
     this.setState({
       selectedCategory: selected
     });
+    console.log(this.state);
   }
   render() {
     return (
@@ -135,7 +140,7 @@ class App extends Component {
             selectedCategory={this.state.selectedCategory}
             deleteTodo={this.deleteTodo}
           />
-          <FormTodo add={this.addTodo} />
+          <FormTodo add={this.addTodo} selectedCategory={this.state.selectedCategory} />
         </Right>
       </Main>
     );

@@ -3,7 +3,6 @@ import React from 'react';
 // which happens to be a component, simple like that
 
 const CategoryList = ({ categories, deleteCategory, clickCate, selectedCategory }) => {
-  console.log(categories);
   const target = selectedCategory;
   const Renderlist = categories =>
     categories.map(category => (

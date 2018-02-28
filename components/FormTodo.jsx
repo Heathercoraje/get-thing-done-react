@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 // import styled from "styled-components";
 
-const FormTodo = props => {
-  const onClickInput = event => {
+const FormTodo = ({ add, selectedCategory }) => {
+  const onClickInput = (event) => {
     event.preventDefault();
     const changeEvent = event;
-    props.add(event);
-    changeEvent.target[0].value = "";
+    add(event, selectedCategory);
+    changeEvent.target[0].value = '';
   };
 
   return (
