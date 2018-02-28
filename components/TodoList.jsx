@@ -4,18 +4,14 @@ const TodoList = ({ categories, todos, selectedCategory, deleteTodo }) => {
   const target = selectedCategory;
   const targetTodos = todos[target];
   const name = categories[target].category;
-  console.log('bestie, this is all todos', todos);
-  console.log('bestie, this is todos of selected category', targetTodos);
-
   const completeTodo = (event) => {
     document.getElementById(event.target.value).classList.toggle('strike');
   };
 
   const Renderlist = (targetTodos) => {
-    console.log(target);
-
-    if (targetTodos.length === 1) {
-      return <p>Start adding task </p>;
+    console.log(targetTodos);
+    if (!targetTodos) {
+      return <p>Add a new task </p>;
     }
     return targetTodos.map((todo) => {
       if (todo.id === 0) {

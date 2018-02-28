@@ -59,18 +59,17 @@ class App extends Component {
     this.clickCate = this.clickCate.bind(this);
   }
   addCategory(name) {
-    const newCategory = [
-      {
-        id: this.state.categories.length
-          ? this.state.categories[this.state.categories.length - 1].id + 1
-          : 0,
-        category: name
-      }
-    ];
-    const stateCategories = this.state.categories;
-    stateCategories.push(newCategory);
+    console.log(name);
+    const newCategory = {
+      id: this.state.categories.length
+        ? this.state.categories[this.state.categories.length - 1].id + 1
+        : 0,
+      category: name
+    };
+    const categoriesUpdated = this.state.categories;
+    categoriesUpdated.push(newCategory);
     this.setState({
-      categories: stateCategories
+      categories: categoriesUpdated
     });
   }
   addTodo(event) {
@@ -109,7 +108,6 @@ class App extends Component {
       todos: newTodos
     });
   }
-
   clickCate(event) {
     const selected = event.target.id;
     console.log('I am here, honey!', selected);
