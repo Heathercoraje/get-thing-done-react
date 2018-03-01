@@ -6,39 +6,39 @@ import TodoList from '../components/TodoList';
 import FormTodo from '../components/FormTodo';
 
 const Main = styled.div`
-  border-radius: 20px;
-  background: #393939;
-  width: 700px;
-  height: 350px;
-  margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 30px;
+	border-radius: 20px;
+	background: #393939;
+	width: 700px;
+	height: 350px;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 30px;
 `;
 
 const Left = styled.div`
-  box-sizing: border-box;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 20px;
-  background: black;
-  float: left;
-  width: 25%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+	box-sizing: border-box;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 20px;
+	background: black;
+	float: left;
+	width: 25%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 `;
 const Right = styled.div`
-  box-sizing: border-box;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: white;
-  padding: 20px;
-  padding-left: 40px;
-  float: right;
-  width: 75%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+	box-sizing: border-box;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: white;
+	padding: 20px;
+	padding-left: 40px;
+	float: right;
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 `;
 
 class App extends Component {
@@ -100,23 +100,26 @@ class App extends Component {
     });
   }
   deleteTodo(event) {
-    alert('hit'); // this is being hit
     const todoIndex = this.state.selectedCategory;
     const currentTodos = this.state.todos[todoIndex];
-    console.log('before', currentTodos);
     const newTodos = currentTodos.filter(todo => todo.id !== Number(event.target.value));
-    console.log('after', newTodos);
+    console.log(this.state.todos);
+    this.state.todos.splice(0, 1, newTodos);
+    console.log(this.state);
+    const allTodos = this.state.todos.splice(0, 1);
+    // this is very weird behavior that you need to read on docs.
+
     // targetTodos.forEach((todo, index) => {
     //   if (todo.id === Number(event.target.value)) {
     //     return newTodos.splice(index, 1); // this mutate the array itself
     //   }
     //   return 0;
     // });
-    this.state.todos.splice(todoIndex, 1, newTodos);
-    console.log(allTodos);
-    // this.setState({
-    //   todos: allTodos
-    // });
+    // this.state.todos.splice(todoIndex, 1, newTodos);
+    // console.log(allTodos);
+    this.setState({
+      todos: this.state.todos
+    });
   }
   clickCate(event) {
     const selected = event.target.id;
