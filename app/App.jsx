@@ -45,11 +45,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        [{ id: 0, todo: 'todo app' }, { id: 1, todo: 'yoga' }, { id: 2, todo: 'eat' }],
-        [{ id: 0, todo: 'hang out with dad' }, { id: 1, todo: ' hang out with Soo' }]
-      ],
-      categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }],
+      todos: [[]],
+      categories: [{ id: 0, category: 'Todo' }],
       selectedCategory: 0
     };
     this.addTodo = this.addTodo.bind(this);
@@ -90,15 +87,6 @@ class App extends Component {
     });
     console.log(this.state);
   }
-  deleteCategory(event) {
-    const currentCategories = this.state.categories;
-    const newCategories = currentCategories.filter(
-      category => category.id !== Number(event.target.value)
-    );
-    this.setState({
-      categories: newCategories
-    });
-  }
   deleteTodo(event) {
     const todoIndex = this.state.selectedCategory;
     const currentTodos = this.state.todos[todoIndex];
@@ -121,18 +109,36 @@ class App extends Component {
       todos: this.state.todos
     });
   }
+  deleteCategory(event) {
+    const currentCategories = this.state.categories;
+    const currentTodos = this.state.todos;
+    const newCategories = currentCategories.filter(
+      category => category.id !== Number(event.target.value)
+    );
+    const newTodos = currentTodos.filter(
+      todo => currentTodos.indexOf(todo) !== Number(event.target.value)
+    );
+    this.setState(
+      {
+        categories: newCategories,
+        todos: newTodos
+      },
+      () => {
+        console.log('yo,yo', this.state);
+      }
+    );
+  }
   clickCate(event) {
     const selected = event.target.id;
     this.setState({
       selectedCategory: selected
     });
-    console.log(this.state);
   }
   render() {
     return (
       <Main>
         <Left>
-          <h1 className="title">React Todo</h1>
+          <h1 className="title">Get Things Done</h1>
           <CategoryList
             clickCate={this.clickCate}
             categories={this.state.categories}
