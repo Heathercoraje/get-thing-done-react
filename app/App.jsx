@@ -89,24 +89,11 @@ class App extends Component {
   }
   deleteTodo(event) {
     const todoIndex = this.state.selectedCategory;
-    const currentTodos = this.state.todos[todoIndex];
-    const newTodos = currentTodos.filter(todo => todo.id !== Number(event.target.value));
-    console.log(this.state.todos);
-    this.state.todos.splice(0, 1, newTodos);
-    console.log(this.state);
-    const allTodos = this.state.todos.splice(0, 1);
-    // this is very weird behavior that you need to read on docs.
-
-    // targetTodos.forEach((todo, index) => {
-    //   if (todo.id === Number(event.target.value)) {
-    //     return newTodos.splice(index, 1); // this mutate the array itself
-    //   }
-    //   return 0;
-    // });
-    // this.state.todos.splice(todoIndex, 1, newTodos);
-    // console.log(allTodos);
+    const currentTodos = this.state.todos;
+    const newTodos = currentTodos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
+    currentTodos.splice(todoIndex, 1, newTodos);
     this.setState({
-      todos: this.state.todos
+      todos: currentTodos
     });
   }
   deleteCategory(event) {

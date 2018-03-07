@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TodoList = ({ categories, todos, selectedCategory, deleteTodo }) => {
+  console.log('me!', todos);
   const name =
   categories[selectedCategory] === undefined
     ? 'Add new category'
@@ -10,26 +11,22 @@ const TodoList = ({ categories, todos, selectedCategory, deleteTodo }) => {
   };
 
   const Renderlist = (todos) => {
-    if (categories[selectedCategory]) {
-      if (todos.length === 0) {
-        return <p>Add a new task </p>;
-      }
-      return todos.map(todo => (
-        <div key={todo.id}>
-          <li key={todo.id} id={todo.id}>
-            {todo.todo}
-            <button onClick={deleteTodo} value={todo.id}>
-							Delete
-            </button>
-            <button onClick={completeTodo} value={todo.id}>
-							Complete
-            </button>
-          </li>
-        </div>
-      ));
+    if (todos.length === 0) {
+      return <p>Add a new task </p>;
     }
-    return '';
+    return todos.map(todo => (
+      <div key={todo.id}>
+        <li id={todo.id}>{todo.todo}</li>
+        <button onClick={deleteTodo} value={todo.id}>
+					Delete
+        </button>
+        <button onClick={completeTodo} value={todo.id}>
+					Complete
+        </button>
+      </div>
+    ));
   };
+  // return '';
   return (
     <div className="rightList">
       <h1>{name}</h1>
