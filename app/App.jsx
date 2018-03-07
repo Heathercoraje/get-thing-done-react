@@ -45,11 +45,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        [{ id: 0, todo: 'todo app' }, { id: 1, todo: 'yoga' }, { id: 2, todo: 'eat' }],
-        [{ id: 0, todo: 'hang out with dad' }, { id: 1, todo: ' hang out with Soo' }]
-      ],
-      categories: [{ id: 0, category: 'Today' }, { id: 1, category: 'Tomorrow' }],
+      todos: [[]],
+      categories: [{ id: 0, category: 'Todo' }],
       selectedCategory: 0
     };
     this.addTodo = this.addTodo.bind(this);
@@ -66,11 +63,14 @@ class App extends Component {
       category: name
     };
     const updateCategories = this.state.categories;
+    const newIndex = this.state.categories.length;
+
     updateCategories.push(newCategory);
     const updateTodos = this.state.todos;
     updateTodos.push([]);
     this.setState({
       categories: updateCategories,
+      selectedCategory: newIndex,
       todos: updateTodos
     });
   }
@@ -90,49 +90,50 @@ class App extends Component {
     });
     console.log(this.state);
   }
+  deleteTodo(event) {
+    const todoIndex = this.state.selectedCategory;
+    const currentTodos = this.state.todos;
+    const newTodos = currentTodos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
+    currentTodos.splice(todoIndex, 1, newTodos);
+    this.setState({
+      todos: currentTodos
+    });
+  }
   deleteCategory(event) {
     const currentCategories = this.state.categories;
+    const newIndex =
+   Number(event.target.value) === this.state.selectedCategory
+     ? this.state.selectedCategory - 1
+     : this.state.selectedCategory;
+    const currentTodos = this.state.todos;
     const newCategories = currentCategories.filter(
       category => category.id !== Number(event.target.value)
     );
-    this.setState({
-      categories: newCategories
-    });
-  }
-  deleteTodo(event) {
-    const todoIndex = this.state.selectedCategory;
-    const currentTodos = this.state.todos[todoIndex];
-    const newTodos = currentTodos.filter(todo => todo.id !== Number(event.target.value));
-    console.log(this.state.todos);
-    this.state.todos.splice(0, 1, newTodos);
-    console.log(this.state);
-    const allTodos = this.state.todos.splice(0, 1);
-    // this is very weird behavior that you need to read on docs.
-
-    // targetTodos.forEach((todo, index) => {
-    //   if (todo.id === Number(event.target.value)) {
-    //     return newTodos.splice(index, 1); // this mutate the array itself
-    //   }
-    //   return 0;
-    // });
-    // this.state.todos.splice(todoIndex, 1, newTodos);
-    // console.log(allTodos);
-    this.setState({
-      todos: this.state.todos
-    });
+    const newTodos = currentTodos.filter(
+      todo => currentTodos.indexOf(todo) !== Number(event.target.value)
+    );
+    this.setState(
+      {
+        categories: newCategories,
+        selectedCategory: newIndex,
+        todos: newTodos
+      },
+      () => {
+        console.log('yo,yo', this.state);
+      }
+    );
   }
   clickCate(event) {
-    const selected = event.target.id;
+    const selected = event.target.value;
     this.setState({
       selectedCategory: selected
     });
-    console.log(this.state);
   }
   render() {
     return (
       <Main>
         <Left>
-          <h1 className="title">React Todo</h1>
+          <h1 className="title">Get Things Done</h1>
           <CategoryList
             clickCate={this.clickCate}
             categories={this.state.categories}

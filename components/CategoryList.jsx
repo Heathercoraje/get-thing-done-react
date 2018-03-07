@@ -3,21 +3,23 @@ import React from 'react';
 // which happens to be a component, simple like that
 
 const CategoryList = ({ categories, deleteCategory, clickCate, selectedCategory }) => {
-  const target = selectedCategory;
+  const targetCategories = categories.slice(1);
   const Renderlist = categories =>
-    categories.map(category => (
+    targetCategories.map(category => (
       <div key={category.id}>
-        <li onClick={clickCate} key={category.id} id={category.id}>
+        <li onClick={clickCate} value={category.id}>
           {category.category}
-          <button key={category.id} onClick={deleteCategory} value={category.id}>
-            Delete
-          </button>
         </li>
+        <button onClick={deleteCategory} value={category.id}>
+					Delete
+        </button>
       </div>
     ));
   return (
     <div className="left">
-      <p>Category List</p>
+      <li onClick={clickCate} value="0">
+				Todo
+      </li>
       <div>{Renderlist(categories)}</div>
     </div>
   );
