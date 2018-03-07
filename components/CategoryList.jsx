@@ -7,7 +7,7 @@ const CategoryList = ({ categories, deleteCategory, clickCate, selectedCategory 
   const Renderlist = categories =>
     targetCategories.map(category => (
       <div key={category.id}>
-        <li onClick={clickCate} id={category.id}>
+        <li onClick={clickCate} value={category.id}>
           {category.category}
         </li>
         <button onClick={deleteCategory} value={category.id}>
@@ -17,7 +17,7 @@ const CategoryList = ({ categories, deleteCategory, clickCate, selectedCategory 
     ));
   return (
     <div className="left">
-      <li onClick={clickCate} id="0">
+      <li onClick={clickCate} value="0">
 				Todo
       </li>
       <div>{Renderlist(categories)}</div>

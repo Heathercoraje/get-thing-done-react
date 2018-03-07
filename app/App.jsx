@@ -63,11 +63,14 @@ class App extends Component {
       category: name
     };
     const updateCategories = this.state.categories;
+    const newIndex = this.state.categories.length;
+
     updateCategories.push(newCategory);
     const updateTodos = this.state.todos;
     updateTodos.push([]);
     this.setState({
       categories: updateCategories,
+      selectedCategory: newIndex,
       todos: updateTodos
     });
   }
@@ -98,6 +101,10 @@ class App extends Component {
   }
   deleteCategory(event) {
     const currentCategories = this.state.categories;
+    const newIndex =
+   Number(event.target.value) === this.state.selectedCategory
+     ? this.state.selectedCategory - 1
+     : this.state.selectedCategory;
     const currentTodos = this.state.todos;
     const newCategories = currentCategories.filter(
       category => category.id !== Number(event.target.value)
@@ -108,6 +115,7 @@ class App extends Component {
     this.setState(
       {
         categories: newCategories,
+        selectedCategory: newIndex,
         todos: newTodos
       },
       () => {
@@ -116,7 +124,7 @@ class App extends Component {
     );
   }
   clickCate(event) {
-    const selected = event.target.id;
+    const selected = event.target.value;
     this.setState({
       selectedCategory: selected
     });
