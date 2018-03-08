@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CategoryList from '../components/CategoryList';
-import FormCategory from '../components/FormCategory';
+import Category from '../components/Category';
 import TodoList from '../components/TodoList';
 import FormTodo from '../components/FormTodo';
 
@@ -13,18 +12,6 @@ const Main = styled.div`
 	margin: 0 auto;
 	margin-top: 40px;
 	margin-bottom: 30px;
-`;
-const Left = styled.div`
-	box-sizing: border-box;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	padding: 20px;
-	background: black;
-	float: left;
-	width: 25%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
 `;
 const Right = styled.div`
 	box-sizing: border-box;
@@ -116,16 +103,13 @@ class App extends Component {
   render() {
     return (
       <Main>
-        <Left>
-          <h1 className="title">Get Things Done</h1>
-          <CategoryList
-            clickCate={this.clickCate}
-            categories={this.state.categories}
-            selectedCategory={this.state.selectedCategory}
-            deleteCategory={this.deleteCategory}
-          />
-          <FormCategory add={this.addCategory} />
-        </Left>
+        <Category
+          click={this.clickCate}
+          categories={this.state.categories}
+          selected={this.state.selectedCategory}
+          delete={this.deleteCategory}
+          add={this.addCategory}
+        />
         <Right>
           <TodoList
             categories={this.state.categories}
