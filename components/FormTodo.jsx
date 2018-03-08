@@ -12,7 +12,7 @@ const FormTodo = ({ add, selected }) => {
   return (
     <form onSubmit={onClickInput}>
       <input required placeholder="Enter your task" />
-      <input type="submit" value="Add" />
+      <input type="submit" value="+" className="button-add" />
     </form>
   );
 };

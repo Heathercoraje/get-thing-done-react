@@ -10,7 +10,7 @@ const FormCategory = (props) => {
   return (
     <form onSubmit={onClickInput}>
       <input required placeholder="new category" />
-      <input type="submit" value="Add" />
+      <input type="submit" value="+" className="button-add" />
     </form>
   );
 };
