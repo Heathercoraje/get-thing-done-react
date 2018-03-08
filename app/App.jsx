@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Category from '../components/Category';
-import TodoList from '../components/TodoList';
-import FormTodo from '../components/FormTodo';
+import Todo from '../components/Todo';
 
 const Main = styled.div`
 	border-radius: 20px;
@@ -12,19 +11,6 @@ const Main = styled.div`
 	margin: 0 auto;
 	margin-top: 40px;
 	margin-bottom: 30px;
-`;
-const Right = styled.div`
-	box-sizing: border-box;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	background: white;
-	padding: 20px;
-	padding-left: 40px;
-	float: right;
-	width: 75%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
 `;
 
 class App extends Component {
@@ -110,15 +96,13 @@ class App extends Component {
           delete={this.deleteCategory}
           add={this.addCategory}
         />
-        <Right>
-          <TodoList
-            categories={this.state.categories}
-            todos={this.state.todos[this.state.selectedCategory]}
-            selectedCategory={this.state.selectedCategory}
-            deleteTodo={this.deleteTodo}
-          />
-          <FormTodo add={this.addTodo} selectedCategory={this.state.selectedCategory} />
-        </Right>
+        <Todo
+          categories={this.state.categories}
+          todos={this.state.todos[this.state.selectedCategory]}
+          selected={this.state.selectedCategory}
+          delete={this.deleteTodo}
+          add={this.addTodo}
+        />
       </Main>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CategoryList from '../components/CategoryList';
-import FormCategory from '../components/FormCategory';
+import CategoryList from './CategoryList';
+import FormCategory from './FormCategory';
 
 const Wrapper = styled.div`
 	box-sizing: border-box;

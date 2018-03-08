@@ -1,20 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const TodoList = ({ categories, todos, selectedCategory, deleteTodo }) => {
-  const name = categories[selectedCategory].category;
+const TodoList = (props) => {
+  const name = props.categories[props.selected].category;
+  const todos = props.todos;
   const completeTodo = (event) => {
     document.getElementById(event.target.value).classList.toggle('strike');
   };
 
   const Renderlist = (todos) => {
-    console.log('me!', todos);
     if (todos.length === 0 || todos === undefined) {
       return <p>Add a new task </p>;
     }
     return todos.map(todo => (
       <div key={todo.id}>
         <li id={todo.id}>{todo.todo}</li>
-        <button onClick={deleteTodo} value={todo.id}>
+        <button onClick={props.delete} value={todo.id}>
 					Delete
         </button>
         <button onClick={completeTodo} value={todo.id}>
