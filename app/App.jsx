@@ -109,9 +109,9 @@ class App extends Component {
     });
   }
   clickCate(event) {
-    const selected = event.target.value;
+    const toDisplay = event.target.value;
     this.setState({
-      selectedCategory: selected
+      selectedCategory: toDisplay
     });
   }
   render() {
