@@ -14,7 +14,6 @@ const Main = styled.div`
 	margin-top: 40px;
 	margin-bottom: 30px;
 `;
-
 const Left = styled.div`
 	box-sizing: border-box;
 	border-top-left-radius: 10px;
