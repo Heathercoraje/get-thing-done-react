@@ -5,7 +5,7 @@ const TodoList = (props) => {
   const name = props.categories[props.selected].category;
   const todos = props.todos;
   const completeTodo = (event) => {
-    document.getElementById(event.target.value).classList.toggle('strike');
+    document.getElementById(event.target.value).classList.toggle('complete');
   };
 
   const Renderlist = (todos) => {

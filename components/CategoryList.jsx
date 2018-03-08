@@ -7,7 +7,7 @@ const CategoryList = (props) => {
   const Renderlist = categories =>
     Categories.map(category => (
       <div key={category.id}>
-        <li onClick={props.click} value={category.id}>
+        <li onClick={props.click} value={category.id} className="category-item">
           {category.category}
         </li>
         <button onClick={props.delete} value={category.id}>
@@ -16,8 +16,8 @@ const CategoryList = (props) => {
       </div>
     ));
   return (
-    <div className="left">
-      <li onClick={props.click} value="0">
+    <div>
+      <li onClick={props.click} value="0" className="category-item">
 				Todo
       </li>
       <div>{Renderlist(props.categories)}</div>

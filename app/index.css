@@ -8,49 +8,41 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+#root {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 li {
 	list-style: none;
-}
-.Title {
-	color: white;
-	font-size: 2rem;
-	letter-spacing: 1px;
-	font-weight: 700;
-	text-align: left;
-	/* font-family: 'Montserrat', sans-serif; */
-	/* font-family: 'Raleway', sans-serif; */
-	/* font-family: 'Open Sans Condensed', sans-serif; */
-	font-family: 'Merriweather Sans', sans-serif;
 }
 h1,
 h2 {
 	margin: 0;
 	padding: 0;
 }
-/* Catergoy */
-.title {
-	color: #03a9f4;
+.Title {
+	color: #03c6f4;
+	letter-spacing: 1px;
+	font-weight: 700;
+	text-align: left;
 }
+
+/* Catergoy */
 .button-add {
-	font-size: 1.5rem;
+	font-size: 1.6rem;
+	width: 35px;
+	height: 35px;
 	color: white;
 	font-weight: 800;
-	background-color: #03a9f4;
+	background-color: #03c6f4;
 	border-radius: 50%;
 	border: none;
 }
 
-.leftList {
-	height: 70%;
-}
-
-.leftAdd {
-	height: 30%;
-	width: 100%;
-}
-
-.left {
+.category-item {
 	color: white;
 }
 
@@ -62,6 +54,6 @@ h2 {
 	height: 30%;
 }
 
-.strike {
-	color: red;
+.complete {
+	color: gray;
 }

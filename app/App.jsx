@@ -5,14 +5,11 @@ import Todo from '../components/Todo';
 
 const Wrapper = styled.div`
 	border-radius: 20px;
-	background: #393939;
-	width: 700px;
-	height: 350px;
+	width: 74%;
+	height: 80%;
 	margin: 0 auto;
-	margin-top: 40px;
-	margin-bottom: 30px;
+	${''};
 `;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -86,7 +83,6 @@ class App extends Component {
       selectedCategory: toDisplay
     });
   }
-
   render() {
     return (
       <Wrapper>
