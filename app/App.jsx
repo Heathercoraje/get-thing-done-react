@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Category from '../components/Category';
 import Todo from '../components/Todo';
 
-const Main = styled.div`
+const Wrapper = styled.div`
 	border-radius: 20px;
 	background: #393939;
 	width: 700px;
@@ -86,9 +86,10 @@ class App extends Component {
       selectedCategory: toDisplay
     });
   }
+
   render() {
     return (
-      <Main>
+      <Wrapper>
         <Category
           click={this.clickCate}
           categories={this.state.categories}
@@ -103,7 +104,7 @@ class App extends Component {
           delete={this.deleteTodo}
           add={this.addTodo}
         />
-      </Main>
+      </Wrapper>
     );
   }
 }
