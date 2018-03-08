@@ -56,77 +56,62 @@ class App extends Component {
     this.clickCate = this.clickCate.bind(this);
   }
   addCategory(name) {
+    const Categories = this.state.categories;
+    const Todos = this.state.todos;
     const newCategory = {
-      id: this.state.categories.length
-        ? this.state.categories[this.state.categories.length - 1].id + 1
-        : 0,
+      id: Categories.length ? Categories[Categories.length - 1].id + 1 : 0,
       category: name
     };
-    const updateCategories = this.state.categories;
-    const newIndex = this.state.categories.length;
 
-    updateCategories.push(newCategory);
-    const updateTodos = this.state.todos;
-    updateTodos.push([]);
+    Categories.push(newCategory);
+    const toDisplay = Categories.length - 1;
+    Todos.push([]);
     this.setState({
-      categories: updateCategories,
-      selectedCategory: newIndex,
-      todos: updateTodos
-    });
-  }
-  addTodo(event, selectedCategory) {
-    // this selectedCategory is an index (categories.id)
-    const targetTodo = this.state.todos[selectedCategory];
-    console.log('this is empty array');
-    const newTodo = {
-      id: targetTodo.length === 0 ? 0 : targetTodo[targetTodo.length - 1].id + 1,
-      todo: event.target[0].value
-    };
-    targetTodo.push(newTodo);
-    const allTodos = this.state.todos;
-    allTodos.splice(selectedCategory, 1, targetTodo);
-    this.setState({
-      todos: allTodos
-    });
-    console.log(this.state);
-  }
-  deleteTodo(event) {
-    const todoIndex = this.state.selectedCategory;
-    const currentTodos = this.state.todos;
-    const newTodos = currentTodos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
-    currentTodos.splice(todoIndex, 1, newTodos);
-    this.setState({
-      todos: currentTodos
+      categories: Categories,
+      selectedCategory: toDisplay,
+      todos: Todos
     });
   }
   deleteCategory(event) {
-    const currentCategories = this.state.categories;
-    const newIndex =
-   Number(event.target.value) === this.state.selectedCategory
-     ? this.state.selectedCategory - 1
-     : this.state.selectedCategory;
-    const currentTodos = this.state.todos;
-    const newCategories = currentCategories.filter(
-      category => category.id !== Number(event.target.value)
-    );
-    const newTodos = currentTodos.filter(
-      todo => currentTodos.indexOf(todo) !== Number(event.target.value)
-    );
-    this.setState(
-      {
-        categories: newCategories,
-        selectedCategory: newIndex,
-        todos: newTodos
-      },
-      () => {
-        console.log('yo,yo', this.state);
-      }
-    );
+    const Categories = this.state.categories;
+    const PrevToDisplay = this.state.selectedCategory;
+    const Todos = this.state.todos;
+    const newCategories = Categories.filter(category => category.id !== Number(event.target.value));
+    const toDisplay =
+   Number(event.target.value) === PrevToDisplay ? PrevToDisplay - 1 : PrevToDisplay;
+    const newTodos = Todos.filter(todo => Todos.indexOf(todo) !== Number(event.target.value));
+    this.setState({
+      categories: newCategories,
+      selectedCategory: toDisplay,
+      todos: newTodos
+    });
+  }
+  addTodo(event, selectedCategory) {
+    const allTodos = this.state.todos;
+    const Todo = this.state.todos[selectedCategory];
+    const newTodo = {
+      id: Todo.length === 0 ? 0 : Todo[Todo.length - 1].id + 1,
+      todo: event.target[0].value
+    };
+    Todo.push(newTodo);
+    allTodos.splice(selectedCategory, 1, Todo);
+    this.setState({
+      todos: allTodos
+    });
+  }
+  deleteTodo(event) {
+    const todoIndex = this.state.selectedCategory;
+    const Todos = this.state.todos;
+    const newTodos = Todos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
+    Todos.splice(todoIndex, 1, newTodos);
+    this.setState({
+      todos: Todos
+    });
   }
   clickCate(event) {
-    const selected = event.target.value;
+    const toDisplay = event.target.value;
     this.setState({
-      selectedCategory: selected
+      selectedCategory: toDisplay
     });
   }
   render() {
