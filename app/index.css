@@ -46,6 +46,18 @@ h2 {
 	color: white;
 }
 
+/* Todo */
+.list-todo {
+	display: flex;
+	flex-direction: row;
+}
+.checkbox {
+	display: inline;
+	font-size: 1.6rem;
+	color: #393939;
+	background-color: transparent;
+	border: 0;
+}
 .rightList {
 	height: 70%;
 }
@@ -53,7 +65,7 @@ h2 {
 .rightAdd {
 	height: 30%;
 }
-
+/* Optional */
 .complete {
-	color: gray;
+	color: #cacaca;
 }

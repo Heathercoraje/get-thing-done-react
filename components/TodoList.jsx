@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// import checkbox from '../assets/checkBox.png';
 
 const TodoList = (props) => {
   const name = props.categories[props.selected].category;
@@ -13,14 +14,17 @@ const TodoList = (props) => {
       return <p>Add a new task </p>;
     }
     return todos.map(todo => (
-      <div key={todo.id}>
-        <li id={todo.id}>{todo.todo}</li>
-        <button onClick={props.delete} value={todo.id}>
-					Delete
+      <div className="list-todo" key={todo.id}>
+        <button className="checkbox" onClick={props.delete} value={todo.id}>
+					&#9744;
         </button>
-        <button onClick={completeTodo} value={todo.id}>
+        <li id={todo.id} onClick={completeTodo} value={todo.id}>
+          {todo.todo}
+        </li>
+
+        {/* <button onClick={completeTodo} value={todo.id}>
 					Complete
-        </button>
+        </button> */}
       </div>
     ));
   };
