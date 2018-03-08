@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-const FormCategory = props => {
-  const onClickInput = event => {
+const FormCategory = (props) => {
+  const onClickInput = (event) => {
     event.preventDefault();
-    var name = event.target[0].value;
+    const name = event.target[0].value;
     props.add(name);
-    event.target[0].value = "";
+    event.target[0].value = '';
   };
   return (
     <form onSubmit={onClickInput}>
       <input required placeholder="new category" />
-      <input type="submit" value="add" />
+      <input type="submit" value="Add" />
     </form>
   );
 };

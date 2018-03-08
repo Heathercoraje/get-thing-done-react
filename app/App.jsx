@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CategoryList from '../components/CategoryList';
-import FormCategory from '../components/FormCategory';
-import TodoList from '../components/TodoList';
-import FormTodo from '../components/FormTodo';
+import Category from '../components/Category';
+import Todo from '../components/Todo';
 
 const Main = styled.div`
 	border-radius: 20px;
@@ -13,32 +11,6 @@ const Main = styled.div`
 	margin: 0 auto;
 	margin-top: 40px;
 	margin-bottom: 30px;
-`;
-
-const Left = styled.div`
-	box-sizing: border-box;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	padding: 20px;
-	background: black;
-	float: left;
-	width: 25%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-`;
-const Right = styled.div`
-	box-sizing: border-box;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	background: white;
-	padding: 20px;
-	padding-left: 40px;
-	float: right;
-	width: 75%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
 `;
 
 class App extends Component {
@@ -117,25 +89,20 @@ class App extends Component {
   render() {
     return (
       <Main>
-        <Left>
-          <h1 className="title">Get Things Done</h1>
-          <CategoryList
-            clickCate={this.clickCate}
-            categories={this.state.categories}
-            selectedCategory={this.state.selectedCategory}
-            deleteCategory={this.deleteCategory}
-          />
-          <FormCategory add={this.addCategory} />
-        </Left>
-        <Right>
-          <TodoList
-            categories={this.state.categories}
-            todos={this.state.todos[this.state.selectedCategory]}
-            selectedCategory={this.state.selectedCategory}
-            deleteTodo={this.deleteTodo}
-          />
-          <FormTodo add={this.addTodo} selectedCategory={this.state.selectedCategory} />
-        </Right>
+        <Category
+          click={this.clickCate}
+          categories={this.state.categories}
+          selected={this.state.selectedCategory}
+          delete={this.deleteCategory}
+          add={this.addCategory}
+        />
+        <Todo
+          categories={this.state.categories}
+          todos={this.state.todos[this.state.selectedCategory]}
+          selected={this.state.selectedCategory}
+          delete={this.deleteTodo}
+          add={this.addTodo}
+        />
       </Main>
     );
   }
