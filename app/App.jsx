@@ -87,20 +87,17 @@ class App extends Component {
     });
   }
   addTodo(event, selectedCategory) {
-    // this selectedCategory is an index (categories.id)
-    const targetTodo = this.state.todos[selectedCategory];
-    console.log('this is empty array');
+    const allTodos = this.state.todos;
+    const Todo = this.state.todos[selectedCategory];
     const newTodo = {
-      id: targetTodo.length === 0 ? 0 : targetTodo[targetTodo.length - 1].id + 1,
+      id: Todo.length === 0 ? 0 : Todo[Todo.length - 1].id + 1,
       todo: event.target[0].value
     };
-    targetTodo.push(newTodo);
-    const allTodos = this.state.todos;
-    allTodos.splice(selectedCategory, 1, targetTodo);
+    Todo.push(newTodo);
+    allTodos.splice(selectedCategory, 1, Todo);
     this.setState({
       todos: allTodos
     });
-    console.log(this.state);
   }
   deleteTodo(event) {
     const todoIndex = this.state.selectedCategory;
