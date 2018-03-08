@@ -56,22 +56,34 @@ class App extends Component {
     this.clickCate = this.clickCate.bind(this);
   }
   addCategory(name) {
+    const Categories = this.state.categories;
+    const Todos = this.state.todos;
     const newCategory = {
-      id: this.state.categories.length
-        ? this.state.categories[this.state.categories.length - 1].id + 1
-        : 0,
+      id: Categories.length ? Categories[Categories.length - 1].id + 1 : 0,
       category: name
     };
-    const updateCategories = this.state.categories;
-    const newIndex = this.state.categories.length;
 
-    updateCategories.push(newCategory);
-    const updateTodos = this.state.todos;
-    updateTodos.push([]);
+    Categories.push(newCategory);
+    const toDisplay = Categories.length - 1;
+    Todos.push([]);
     this.setState({
-      categories: updateCategories,
-      selectedCategory: newIndex,
-      todos: updateTodos
+      categories: Categories,
+      selectedCategory: toDisplay,
+      todos: Todos
+    });
+  }
+  deleteCategory(event) {
+    const Categories = this.state.categories;
+    const PrevToDisplay = this.state.selectedCategory;
+    const Todos = this.state.todos;
+    const newCategories = Categories.filter(category => category.id !== Number(event.target.value));
+    const toDisplay =
+   Number(event.target.value) === PrevToDisplay ? PrevToDisplay - 1 : PrevToDisplay;
+    const newTodos = Todos.filter(todo => Todos.indexOf(todo) !== Number(event.target.value));
+    this.setState({
+      categories: newCategories,
+      selectedCategory: toDisplay,
+      todos: newTodos
     });
   }
   addTodo(event, selectedCategory) {
@@ -98,30 +110,6 @@ class App extends Component {
     this.setState({
       todos: currentTodos
     });
-  }
-  deleteCategory(event) {
-    const currentCategories = this.state.categories;
-    const newIndex =
-   Number(event.target.value) === this.state.selectedCategory
-     ? this.state.selectedCategory - 1
-     : this.state.selectedCategory;
-    const currentTodos = this.state.todos;
-    const newCategories = currentCategories.filter(
-      category => category.id !== Number(event.target.value)
-    );
-    const newTodos = currentTodos.filter(
-      todo => currentTodos.indexOf(todo) !== Number(event.target.value)
-    );
-    this.setState(
-      {
-        categories: newCategories,
-        selectedCategory: newIndex,
-        todos: newTodos
-      },
-      () => {
-        console.log('yo,yo', this.state);
-      }
-    );
   }
   clickCate(event) {
     const selected = event.target.value;
