@@ -101,11 +101,11 @@ class App extends Component {
   }
   deleteTodo(event) {
     const todoIndex = this.state.selectedCategory;
-    const currentTodos = this.state.todos;
-    const newTodos = currentTodos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
-    currentTodos.splice(todoIndex, 1, newTodos);
+    const Todos = this.state.todos;
+    const newTodos = Todos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
+    Todos.splice(todoIndex, 1, newTodos);
     this.setState({
-      todos: currentTodos
+      todos: Todos
     });
   }
   clickCate(event) {
