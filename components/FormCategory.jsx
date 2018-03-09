@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const FormCategory = (props) => {
-  const onClickInput = (event) => {
+class FormCategory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputOpen: true
+    };
+    this.onClickInput = this.onClickInput.bind(this);
+  }
+
+  onClickInput(event) {
     event.preventDefault();
     const name = event.target[0].value;
-    props.add(name);
+    this.props.add(name);
     event.target[0].value = '';
-  };
-  return (
-    <form onSubmit={onClickInput}>
-      <input required placeholder="new category" />
-      <input type="submit" value="+" className="button-add" />
-    </form>
-  );
-};
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.onClickInput}>
+        <input required placeholder="new category" />
+        <input type="submit" value="+" className="button-add" />
+      </form>
+    );
+  }
+}
 
 export default FormCategory;
