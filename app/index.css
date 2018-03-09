@@ -40,6 +40,7 @@ h2 {
 	background-color: #03c6f4;
 	border-radius: 50%;
 	border: none;
+	cursor: pointer;
 }
 
 .category-item {
