@@ -9,7 +9,7 @@ class FormCategory extends Component {
 
   onClickInput(event) {
     event.preventDefault();
-    const input = document.getElementById('input');
+    const input = document.getElementById('input-cate');
     if (input.style.display === 'none') {
       input.style.display = 'block';
       input.focus();
@@ -27,7 +27,7 @@ class FormCategory extends Component {
   render() {
     return (
       <form onSubmit={this.onClickInput}>
-        <input placeholder="new category" id="input" style={{ display: 'none' }} />
+        <input placeholder="new category" id="input-cate" style={{ display: 'none' }} />
         <input type="submit" value="+" className="button-add" />
       </form>
     );
