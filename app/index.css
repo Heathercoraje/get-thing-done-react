@@ -32,6 +32,7 @@ h2 {
 
 /* Catergoy */
 .button-add {
+	float: right;
 	font-size: 1.6rem;
 	width: 35px;
 	height: 35px;

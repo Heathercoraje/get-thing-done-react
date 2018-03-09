@@ -24,12 +24,12 @@ class App extends Component {
     this.deleteCategory = this.deleteCategory.bind(this);
     this.clickCate = this.clickCate.bind(this);
   }
-  addCategory(name) {
+  addCategory(event) {
     const Categories = this.state.categories;
     const Todos = this.state.todos;
     const newCategory = {
       id: Categories.length ? Categories[Categories.length - 1].id + 1 : 0,
-      category: name
+      category: event.target[0].value
     };
 
     Categories.push(newCategory);
@@ -55,15 +55,16 @@ class App extends Component {
       todos: newTodos
     });
   }
-  addTodo(event, selectedCategory) {
+  addTodo(event) {
     const allTodos = this.state.todos;
-    const Todo = this.state.todos[selectedCategory];
+    const selected = this.state.selectedCategory;
+    const Todo = allTodos[selected];
     const newTodo = {
       id: Todo.length === 0 ? 0 : Todo[Todo.length - 1].id + 1,
       todo: event.target[0].value
     };
     Todo.push(newTodo);
-    allTodos.splice(selectedCategory, 1, Todo);
+    allTodos.splice(selected, 1, Todo);
     this.setState({
       todos: allTodos
     });
