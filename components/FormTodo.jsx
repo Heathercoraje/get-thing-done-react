@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import HandleClickInput from './HandleClickInput';
 
-const FormTodo = ({ add, selected }) => {
-  const onClickInput = (event) => {
-    event.preventDefault();
-    const changeEvent = event;
-    add(event, selected);
-    changeEvent.target[0].value = '';
+const FormTodo = ({ add }) => {
+  const onClickInput = (e) => {
+    const input = document.getElementById('input-todo');
+    e.preventDefault();
+    HandleClickInput(e, add, input);
   };
-
   return (
     <form onSubmit={onClickInput}>
-      <input required placeholder="Enter your task" />
+      <input placeholder="Enter your task" id="input-todo" style={{ display: 'none' }} />
       <input type="submit" value="+" className="button-add" />
     </form>
   );

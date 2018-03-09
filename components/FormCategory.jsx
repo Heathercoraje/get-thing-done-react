@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import HandleClickInput from './HandleClickInput';
 
-const FormCategory = (props) => {
-  const onClickInput = (event) => {
-    event.preventDefault();
-    const name = event.target[0].value;
-    props.add(name);
-    event.target[0].value = '';
-  };
-  return (
-    <form onSubmit={onClickInput}>
-      <input required placeholder="new category" />
-      <input type="submit" value="+" className="button-add" />
-    </form>
-  );
-};
+class FormCategory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.onClickInput = this.onClickInput.bind(this);
+  }
+
+  onClickInput(e) {
+    e.preventDefault();
+    const inputElement = document.getElementById('input-cate');
+    HandleClickInput(e, this.props.add, inputElement);
+  }
+
+  render() {
+    return (
+      <form className="form" onSubmit={this.onClickInput}>
+        <input
+          size="14"
+          placeholder="new category"
+          id="input-cate"
+          style={{ display: 'none' }}
+          className="input-field"
+        />
+        <input type="submit" value="+" className="button-add" />
+      </form>
+    );
+  }
+}
 
 export default FormCategory;
