@@ -47,6 +47,10 @@ h2 {
 .category-item {
 	color: white;
 }
+.form {
+	margin-top: auto;
+	/* WTF this does? super cool */
+}
 
 /* Todo */
 .list-todo {
@@ -68,6 +72,15 @@ h2 {
 	height: 30%;
 }
 /* Optional */
+.input-field {
+	color: white;
+	outline: none;
+	border: none;
+	border-bottom: 1.4px solid #ddd;
+	background: transparent;
+	height: 1.4rem;
+}
+
 .complete {
 	color: #cacaca;
 }

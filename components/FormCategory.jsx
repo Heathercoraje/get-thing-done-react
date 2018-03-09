@@ -16,8 +16,14 @@ class FormCategory extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onClickInput}>
-        <input size="10" placeholder="new category" id="input-cate" style={{ display: 'none' }} />
+      <form className="form" onSubmit={this.onClickInput}>
+        <input
+          size="14"
+          placeholder="new category"
+          id="input-cate"
+          style={{ display: 'none' }}
+          className="input-field"
+        />
         <input type="submit" value="+" className="button-add" />
       </form>
     );
