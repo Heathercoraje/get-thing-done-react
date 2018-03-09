@@ -1,32 +1,22 @@
 import React, { Component } from 'react';
+import HandleClickInput from './HandleClickInput';
 
 class FormCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.onClickInput = this.onClickInput.bind(this);
+    this.HandleClickInput = this.HandleClickInput.bind(this);
   }
 
-  onClickInput(event) {
-    event.preventDefault();
-    const input = document.getElementById('input-cate');
-    if (input.style.display === 'none') {
-      input.style.display = 'block';
-      input.focus();
-    } else if (input.style.display === 'block' && event.target[0].value.trim() !== '') {
-      const name = event.target[0].value;
-      this.props.add(name);
-      event.target[0].value = '';
-      input.style.display = 'none';
-    } else {
-      // input field is empty or white space
-      input.style.display = 'none';
-    }
+  HandleClickInput(e) {
+    e.preventDefault();
+    const inputElement = document.getElementById('input-cate');
+    HandleClickInput(e, this.props.add, inputElement);
   }
 
   render() {
     return (
-      <form onSubmit={this.onClickInput}>
+      <form onSubmit={this.HandleClickInput}>
         <input placeholder="new category" id="input-cate" style={{ display: 'none' }} />
         <input type="submit" value="+" className="button-add" />
       </form>
