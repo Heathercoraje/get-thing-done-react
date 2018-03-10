@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Desc = styled.div`
-	margin-bottom: 6%;
+const DescBox = styled.textarea`
+	outline: none;
+	border: none;
+	width: 30vw;
+	height: 7vh;
 `;
 
 const TodoList = (props) => {
   const name = props.categories[props.selected].category;
   const todos = props.todos;
+
   const completeTodo = (event) => {
     document.getElementById(event.target.value).classList.toggle('complete');
   };
@@ -28,16 +32,22 @@ const TodoList = (props) => {
     ));
   };
 
+  const Desc = (
+    <div>
+      <h1 className="todo-name">{name}</h1>
+      <DescBox
+        className="desc"
+        type="text"
+        placeholder="Get things done today.&#10;Yesterday, you said tomorrow"
+        onKeyDown={props.HandleDesc}
+        spellCheck="false"
+      />
+    </div>
+  );
+
   return (
     <div className="">
-      <Desc>
-        <h1 className="todo-name">{name}</h1>
-        <p className="desc">
-          <em>
-						Get things done today.<br /> Yesterday, you said tomorrow.
-          </em>
-        </p>
-      </Desc>
+      <div>{Desc}</div>
       <div>{Renderlist(todos)}</div>
     </div>
   );

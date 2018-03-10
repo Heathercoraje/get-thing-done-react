@@ -4,7 +4,7 @@ import Category from '../components/Category';
 import Todo from '../components/Todo';
 
 const Wrapper = styled.div`
-	width: 66%;
+	width: 60%;
 	min-width: 60%;
 	height: 80%;
 	margin: auto auto;
@@ -26,9 +26,10 @@ class App extends Component {
   addCategory(event) {
     const Categories = this.state.categories;
     const Todos = this.state.todos;
+    const Name = event.target[0].value.charAt(0).toUpperCase() + event.target[0].value.slice(1);
     const newCategory = {
       id: Categories.length ? Categories[Categories.length - 1].id + 1 : 0,
-      category: event.target[0].value
+      category: Name
     };
 
     Categories.push(newCategory);

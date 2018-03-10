@@ -14,7 +14,12 @@ const FormTodo = ({ add }) => {
   return (
     <Wrapper>
       <form onSubmit={onClickInput}>
-        <input placeholder="Enter your task" id="input-todo" style={{ display: 'none' }} />
+        <input
+          className="input-field todo-field"
+          placeholder="Enter your task"
+          id="input-todo"
+          style={{ display: 'none' }}
+        />
         <input type="submit" value="+" className="button-add" />
       </form>
     </Wrapper>

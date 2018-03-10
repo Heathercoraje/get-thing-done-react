@@ -17,16 +17,43 @@ const Wrapper = styled.div`
 	color: #393939;
 `;
 
-const Todo = props => (
-  <Wrapper>
-    <TodoList
-      categories={props.categories}
-      todos={props.todos}
-      selected={props.selected}
-      delete={props.delete}
-    />
-    <FormTodo add={props.add} selected={props.selected} />
-  </Wrapper>
-);
+const HandleDesc = (e) => {
+  if (e.keyCode === 13) {
+    document.getElementById('descForm').submit();
+  }
+};
+
+class Todo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: 'hello world'
+    };
+    this.HandleDesc = this.HandleDesc.bind(this);
+  }
+  HandleDesc(e) {
+    if (e.keyCode === 13) {
+      this.setState({
+        description: e.target.value
+      });
+      e.preventDefault();
+    }
+  }
+  render() {
+    return (
+      <Wrapper>
+        <TodoList
+          categories={this.props.categories}
+          todos={this.props.todos}
+          selected={this.props.selected}
+          delete={this.props.delete}
+          HandleDesc={this.HandleDesc}
+          desc={this.state.description}
+        />
+        <FormTodo add={this.props.add} selected={this.props.selected} />
+      </Wrapper>
+    );
+  }
+}
 
 export default Todo;

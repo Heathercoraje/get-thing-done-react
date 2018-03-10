@@ -34,10 +34,9 @@ input {
 .Title {
 	letter-spacing: 0 !important;
 	text-align: center;
-	font-size: 2.35vw;
+	font-size: 2.1vw;
 	text-shadow: 1.5px 1.5px 2px #191919;
 	color: #03c6f4;
-
 	font-weight: 700;
 	margin-bottom: 2rem;
 }
@@ -66,7 +65,7 @@ input {
 }
 .category-text {
 	font-weight: 700;
-	font-size: 1.1rem;
+	font-size: 1.6vw;
 	color: white;
 	display: inline;
 	text-shadow: 1.5px 1.5px 2px #191919;
@@ -76,11 +75,18 @@ input {
 }
 
 /* Todo */
-.desc {
-	font-size: 1.1vw;
+.desc,
+.desc::placeholder {
+	text-transform: capitalize;
+	font-size: 1.2vw;
+	resize: none;
+	font-style: oblique;
+	color: gray;
 }
+
 .todo-name {
-	font-size: 2.5vw;
+	font-size: 2.3vw;
+	margin-bottom: 1vh;
 }
 .list-todo {
 	display: flex;
@@ -88,9 +94,10 @@ input {
 }
 .list-todo li {
 	font-size: 1.3vw;
+	text-transform: capitalize;
 }
 .checkbox {
-	padding-right: 2rem;
+	padding-right: 1.2rem;
 	display: inline;
 	font-size: 1.6rem;
 	color: #393939;
@@ -102,21 +109,32 @@ input {
 
 /* left */
 .input-field {
-	width: 80%;
+	width: 12vw;
 	color: white;
 	outline: none;
 	border: none;
 	border-bottom: 1.4px solid #ddd;
-	font-size: 1.1rem;
+	font-size: 1.3vw;
 	background: transparent;
 	height: 1.4rem;
 }
+.input-field::placeholder {
+	font-size: 1.3vw;
+}
 
+.todo-field {
+	width: 24vw;
+	border-bottom: 1.4px solid #cacaca;
+	color: #393939;
+}
+.todo-field::placeholder {
+	color: #cacaca;
+}
 .delete-child {
 	/* display: none; */
 }
 
 /* right */
 .complete {
-	color: #cacaca;
+	color: gray;
 }
