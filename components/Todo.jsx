@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 	border-top-right-radius: 0.2rem;
 	border-bottom-right-radius: 0.2rem;
 	background: white;
-	padding: 2.5rem 1.5rem 1.5rem 2.5rem;
+	padding: 3rem 1.5rem 1.5rem 2.5rem;
 	float: right;
 	width: 65%;
 	height: 100%;

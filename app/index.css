@@ -1,5 +1,6 @@
 /* preset */
 body {
+	letter-spacing: 0.5px;
 	width: 100%;
 	height: 100vh;
 	margin: 0;
@@ -31,11 +32,12 @@ input {
 /* module*/
 
 .Title {
+	letter-spacing: 0 !important;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 2.35vw;
 	text-shadow: 1.5px 1.5px 2px #191919;
 	color: #03c6f4;
-	letter-spacing: 1px;
+
 	font-weight: 700;
 	margin-bottom: 2rem;
 }
@@ -71,21 +73,24 @@ input {
 }
 .form {
 	margin-top: auto;
-	/* border: 1px red solid; */
 }
 
 /* Todo */
 .desc {
-	font-size: 0.8rem;
+	font-size: 1.1vw;
 }
 .todo-name {
-	font-size: 2rem;
+	font-size: 2.5vw;
 }
 .list-todo {
 	display: flex;
-	flex-direction: row;
+	align-items: center;
+}
+.list-todo li {
+	font-size: 1.3vw;
 }
 .checkbox {
+	padding-right: 2rem;
 	display: inline;
 	font-size: 1.6rem;
 	color: #393939;
