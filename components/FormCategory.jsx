@@ -18,8 +18,7 @@ class FormCategory extends Component {
     return (
       <form className="form" onSubmit={this.onClickInput}>
         <input
-          size="14"
-          placeholder="new category"
+          placeholder=" New category"
           id="input-cate"
           style={{ display: 'none' }}
           className="input-field"

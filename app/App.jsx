@@ -5,7 +5,8 @@ import Todo from '../components/Todo';
 
 const Wrapper = styled.div`
 	width: 74%;
-	min-width: 38rem;
+	min-width: 40rem;
+	max-width: 45rem;
 	height: 80%;
 	margin: auto auto;
 `;

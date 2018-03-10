@@ -19,16 +19,14 @@ li {
 }
 /* module*/
 
-.margin1 {
-	margin-bottom: 1rem;
-}
-
 .Title {
+	text-align: center;
+	font-size: 1.5em;
 	text-shadow: 1.5px 1.5px 2px #191919;
 	color: #03c6f4;
 	letter-spacing: 1px;
 	font-weight: 700;
-	text-align: left;
+	/* text-align: left; */
 	margin-bottom: 2rem;
 }
 
@@ -46,15 +44,24 @@ li {
 	cursor: pointer;
 }
 
-.category-item {
+.category-div {
+	height: 1.8rem;
+	border-bottom: 0.2rem transparent solid;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.category-text {
 	font-weight: 700;
 	font-size: 1.1rem;
 	color: white;
 	display: inline;
+	text-shadow: 1.5px 1.5px 2px #191919;
 }
 .form {
 	margin-top: auto;
-	/* WTF this does? super cool */
+	/* border: 1px red solid; */
 }
 
 /* Todo */
@@ -80,16 +87,18 @@ li {
 
 /* left */
 .input-field {
+	width: 80%;
 	color: white;
 	outline: none;
 	border: none;
 	border-bottom: 1.4px solid #ddd;
+	font-size: 1.1rem;
 	background: transparent;
 	height: 1.4rem;
 }
 
 .delete-child {
-	display: none;
+	/* display: none; */
 }
 
 /* right */
