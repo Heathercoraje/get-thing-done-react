@@ -6,18 +6,18 @@ const CategoryList = (props) => {
   const Categories = props.categories.slice(1);
   const Renderlist = categories =>
     Categories.map(category => (
-      <div key={category.id}>
-        <li onClick={props.click} value={category.id} className="category-item">
+      <div key={category.id} className="category-item margin1">
+        <li onClick={props.click} value={category.id}>
           {category.category}
         </li>
-        <button onClick={props.delete} value={category.id}>
+        <button onClick={props.delete} value={category.id} className="delete-child">
 					Delete
         </button>
       </div>
     ));
   return (
     <div>
-      <li onClick={props.click} value="0" className="category-item">
+      <li onClick={props.click} value="0" className="category-item margin1">
 				Todo
       </li>
       <div>{Renderlist(props.categories)}</div>

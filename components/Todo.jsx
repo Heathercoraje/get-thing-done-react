@@ -5,10 +5,11 @@ import FormTodo from './FormTodo';
 
 const Wrapper = styled.div`
 	box-sizing: border-box;
-	border-top-right-radius: 1rem;
-	border-bottom-right-radius: 1rem;
+	border-top-right-radius: 0.2rem;
+	border-bottom-right-radius: 0.2rem;
 	background: white;
-	padding: 2.5rem;
+	padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+
 	float: right;
 	width: 65%;
 	height: 100%;

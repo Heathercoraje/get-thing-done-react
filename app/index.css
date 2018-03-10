@@ -1,3 +1,4 @@
+/* preset */
 body {
 	width: 100%;
 	height: 100vh;
@@ -11,23 +12,24 @@ body {
 #root {
 	height: 100vh;
 	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 li {
 	list-style: none;
 }
-h1,
-h2 {
-	margin: 0;
-	padding: 0;
+/* module*/
+
+.margin1 {
+	margin-bottom: 1rem;
 }
+
 .Title {
+	text-shadow: 1.5px 1.5px 2px #191919;
 	color: #03c6f4;
 	letter-spacing: 1px;
 	font-weight: 700;
 	text-align: left;
+	margin-bottom: 2rem;
 }
 
 /* Catergoy */
@@ -45,7 +47,10 @@ h2 {
 }
 
 .category-item {
+	font-weight: 700;
+	font-size: 1.1rem;
 	color: white;
+	display: inline;
 }
 .form {
 	margin-top: auto;
@@ -72,6 +77,8 @@ h2 {
 	height: 30%;
 }
 /* Optional */
+
+/* left */
 .input-field {
 	color: white;
 	outline: none;
@@ -81,6 +88,11 @@ h2 {
 	height: 1.4rem;
 }
 
+.delete-child {
+	display: none;
+}
+
+/* right */
 .complete {
 	color: #cacaca;
 }

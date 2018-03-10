@@ -4,11 +4,10 @@ import Category from '../components/Category';
 import Todo from '../components/Todo';
 
 const Wrapper = styled.div`
-	border-radius: 20px;
 	width: 74%;
+	min-width: 38rem;
 	height: 80%;
-	margin: 0 auto;
-	${''};
+	margin: auto auto;
 `;
 class App extends Component {
   constructor(props) {
