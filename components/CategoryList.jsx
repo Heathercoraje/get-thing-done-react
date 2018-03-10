@@ -1,27 +1,42 @@
 import React from 'react';
-// they are just all function with return value
-// which happens to be a component, simple like that
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+	padding-left: 0.6rem;
+`;
+const DeleteParent = styled.button`
+	background: transparent;
+	border: none;
+	color: #cacaca;
+	font-size: 1.8rem;
+	padding: 0;
+	margin: 0;
+	font-weight: 100;
+`;
 
 const CategoryList = (props) => {
   const Categories = props.categories.slice(1);
   const Renderlist = categories =>
     Categories.map(category => (
-      <div key={category.id}>
-        <li onClick={props.click} value={category.id} className="category-item">
+      <div key={category.id} className="category-div">
+        <li onClick={props.click} value={category.id} className="category-text">
           {category.category}
         </li>
-        <button onClick={props.delete} value={category.id}>
-					Delete
-        </button>
+        <DeleteParent onClick={props.delete} value={category.id}>
+					&#8854;
+        </DeleteParent>
       </div>
     ));
   return (
-    <div>
-      <li onClick={props.click} value="0" className="category-item">
-				Todo
-      </li>
+    <Wrapper>
+      <div className="category-div">
+        <li onClick={props.click} value="0" className="category-text">
+					Todo
+        </li>
+        <DeleteParent>&#8854;</DeleteParent>
+      </div>
       <div>{Renderlist(props.categories)}</div>
-    </div>
+    </Wrapper>
   );
 };
 

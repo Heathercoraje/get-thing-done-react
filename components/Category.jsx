@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import CategoryList from './CategoryList';
 import FormCategory from './FormCategory';
+import DeleteButton from './DeleteButton';
 
 const Wrapper = styled.div`
 	box-sizing: border-box;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	padding: 10px;
+	border-top-left-radius: 0.2rem;
+	border-bottom-left-radius: 0.2rem;
+	padding: 2.8rem 1rem 1.5rem 1.5rem;
 	background: #393939;
 	float: left;
 	width: 35%;
@@ -16,7 +17,11 @@ const Wrapper = styled.div`
 	flex-direction: column;
 `;
 
-const Title = <h2 className="Title">Get Things Done</h2>;
+const InnerWrapper = styled.div`
+	margin-top: auto;
+`;
+
+const Title = <h3 className="Title">Get things done</h3>;
 
 const Category = props => (
   <Wrapper>

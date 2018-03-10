@@ -3,7 +3,6 @@ function HandleClickInput(event, add, inputElement) {
     inputElement.style.display = 'inline';
     inputElement.focus();
   } else if (inputElement.style.display === 'inline' && event.target[0].value.trim() !== '') {
-    const name = event.target[0].value;
     add(event);
     event.target[0].value = '';
     inputElement.style.display = 'none';

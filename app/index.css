@@ -1,33 +1,44 @@
+/* preset */
 body {
+	letter-spacing: 0.5px;
 	width: 100%;
 	height: 100vh;
 	margin: 0;
 	padding: 0;
 	font-family: 'Merriweather Sans', sans-serif;
-	background-image: url('https://images.unsplash.com/photo-1475796258459-4c4a9d5c8d15?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7b27de68d2932ada87028e063c3f5fe5&auto=format&fit=crop&w=891&q=80');
+	background-image: url('https://images.unsplash.com/photo-1504019478087-6659e5eb849c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=efa8c72af7fc8803800cff02806a6c63&auto=format&fit=crop&w=1500&q=80');
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+	padding: 0;
 }
 #root {
 	height: 100vh;
 	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 li {
 	list-style: none;
 }
-h1,
-h2 {
-	margin: 0;
-	padding: 0;
+button,
+input {
+	outline: none;
 }
+/* module*/
+
 .Title {
+	letter-spacing: 0 !important;
+	text-align: center;
+	font-size: 2.1vw;
+	text-shadow: 1.5px 1.5px 2px #191919;
 	color: #03c6f4;
-	letter-spacing: 1px;
 	font-weight: 700;
-	text-align: left;
+	margin-bottom: 2rem;
 }
 
 /* Catergoy */
@@ -44,43 +55,86 @@ h2 {
 	cursor: pointer;
 }
 
-.category-item {
+.category-div {
+	height: 1.8rem;
+	border-bottom: 0.2rem transparent solid;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.category-text {
+	font-weight: 700;
+	font-size: 1.6vw;
 	color: white;
+	display: inline;
+	text-shadow: 1.5px 1.5px 2px #191919;
 }
 .form {
 	margin-top: auto;
-	/* WTF this does? super cool */
 }
 
 /* Todo */
+.desc,
+.desc::placeholder {
+	text-transform: capitalize;
+	font-size: 1.2vw;
+	resize: none;
+	font-style: oblique;
+	color: gray;
+}
+
+.todo-name {
+	font-size: 2.3vw;
+	margin-bottom: 1vh;
+}
 .list-todo {
 	display: flex;
-	flex-direction: row;
+	align-items: center;
+}
+.list-todo li {
+	font-size: 1.3vw;
+	text-transform: capitalize;
 }
 .checkbox {
+	padding-right: 1.2rem;
 	display: inline;
 	font-size: 1.6rem;
 	color: #393939;
 	background-color: transparent;
 	border: 0;
 }
-.rightList {
-	height: 70%;
-}
 
-.rightAdd {
-	height: 30%;
-}
 /* Optional */
+
+/* left */
 .input-field {
+	width: 12vw;
 	color: white;
 	outline: none;
 	border: none;
 	border-bottom: 1.4px solid #ddd;
+	font-size: 1.3vw;
 	background: transparent;
 	height: 1.4rem;
 }
+.input-field::placeholder {
+	font-size: 1.3vw;
+}
 
-.complete {
+.todo-field {
+	width: 24vw;
+	border-bottom: 1.4px solid #cacaca;
+	color: #393939;
+}
+.todo-field::placeholder {
 	color: #cacaca;
+}
+.delete-child {
+	/* display: none; */
+}
+
+/* right */
+.complete {
+	color: gray;
 }
