@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-// import checkbox from '../assets/checkBox.png';
+
+const Desc = styled.div`
+	border: 1px red solid;
+	margin-bottom: 6%;
+`;
 
 const TodoList = (props) => {
   const name = props.categories[props.selected].category;
@@ -11,7 +15,7 @@ const TodoList = (props) => {
 
   const Renderlist = (todos) => {
     if (todos.length === 0 || todos === undefined) {
-      return <p>Add a new task </p>;
+      return '';
     }
     return todos.map(todo => (
       <div className="list-todo" key={todo.id}>
@@ -21,17 +25,20 @@ const TodoList = (props) => {
         <li id={todo.id} onClick={completeTodo} value={todo.id}>
           {todo.todo}
         </li>
-
-        {/* <button onClick={completeTodo} value={todo.id}>
-					Complete
-        </button> */}
       </div>
     ));
   };
 
   return (
-    <div className="rightList">
-      <h1>{name}</h1>
+    <div className="">
+      <Desc>
+        <h1 className="todo-name">{name}</h1>
+        <p className="desc">
+          <em>
+						Get things done today.<br /> Yesterday, you said tomorrow.
+          </em>
+        </p>
+      </Desc>
       <div>{Renderlist(todos)}</div>
     </div>
   );

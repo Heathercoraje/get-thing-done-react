@@ -4,9 +4,9 @@ import Category from '../components/Category';
 import Todo from '../components/Todo';
 
 const Wrapper = styled.div`
-	width: 74%;
-	min-width: 40rem;
-	max-width: 45rem;
+	width: 68%;
+	min-width: 60%;
+
 	height: 80%;
 	margin: auto auto;
 `;
