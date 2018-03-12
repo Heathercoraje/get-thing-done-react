@@ -103,15 +103,14 @@ class App extends Component {
     });
   }
   complete(e) {
-    console.log(this.state);
-    // const allTodos = this.state.todos;
-    // const targetTodoArr = allTodos[selectedCategory];
-    // const targetId = e.target.id;
-    // targetTodoArr[targetId].isDone = true;
-    // allTodos.splice(selectedCategory, 1, targetTodoArr);
-    // this.setState({
-    //   todos: allTodos
-    // });
+    const allTodos = this.state.todos;
+    const targetTodoArr = allTodos[this.state.selectedCategory];
+    const targetId = e.target.id;
+    targetTodoArr[targetId].isDone = !targetTodoArr[targetId].isDone;
+    allTodos.splice(this.state.selectedCategory, 1, targetTodoArr);
+    this.setState({
+      todos: allTodos
+    });
   }
   render() {
     return (
