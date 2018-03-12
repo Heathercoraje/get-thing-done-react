@@ -34,10 +34,6 @@ class TodoList extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  // completeTodo = (event) => {
-  // 	document.getElementById(event.target.id).classList.toggle('complete');
-  // };
-
   toggle() {
     document.getElementById('input-desc').classList.toggle('show');
     document.getElementById('desc').classList.toggle('hide');
@@ -86,7 +82,7 @@ class TodoList extends Component {
           <button className="checkbox" onClick={this.props.delete} value={todo.id}>
 						&#9744;
           </button>
-          <li id={Math.random()} value={todo.id}>
+          <li id={todo.id} onClick={this.props.complete} value={todo.id}>
             {todo.todo}
           </li>
         </div>

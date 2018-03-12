@@ -20,7 +20,9 @@ const Wrapper = styled.div`
 class Todo extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      hello: 'world'
+    };
   }
 
   render() {
@@ -32,6 +34,7 @@ class Todo extends Component {
           selected={this.props.selected}
           delete={this.props.delete}
           HandleDesc={this.props.HandleDesc}
+          complete={this.props.complete}
         />
         <FormTodo add={this.props.add} selected={this.props.selected} />
       </Wrapper>
