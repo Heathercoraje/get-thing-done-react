@@ -75,6 +75,9 @@ input {
 }
 
 /* Todo */
+.desc-box {
+	margin-bottom: 3vh;
+}
 .desc,
 .desc::placeholder {
 	text-transform: capitalize;
@@ -105,6 +108,13 @@ input {
 	border: 0;
 }
 
+.input-desc,
+.input-desc::placeholder {
+	font-size: 1.5vw;
+	font-family: 'Merriweather Sans', sans-serif;
+	border: none;
+	outline: none;
+}
 /* Optional */
 
 /* left */
@@ -135,6 +145,15 @@ input {
 }
 
 /* right */
+.form-edit {
+	display: none;
+}
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
 .complete {
-	color: gray;
+	color: red;
 }
