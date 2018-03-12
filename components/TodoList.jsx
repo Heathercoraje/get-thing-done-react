@@ -24,6 +24,9 @@ const P = styled.p`
 	word-wrap: break-word;
 	font-size: 1.5vw;
 `;
+const Li = styled.li`
+	text-decoration: line-through;
+`;
 
 class TodoList extends Component {
   constructor(props) {
@@ -33,10 +36,6 @@ class TodoList extends Component {
     };
     this.toggle = this.toggle.bind(this);
   }
-
-  // completeTodo = (event) => {
-  // 	document.getElementById(event.target.id).classList.toggle('complete');
-  // };
 
   toggle() {
     document.getElementById('input-desc').classList.toggle('show');
@@ -81,17 +80,33 @@ class TodoList extends Component {
       if (todos.length === 0 || todos === undefined) {
         return '';
       }
-      return todos.map(todo => (
-        <div className="list-todo" key={todo.id}>
-          <button className="checkbox" onClick={this.props.delete} value={todo.id}>
-						&#9744;
-          </button>
-          <li id={Math.random()} value={todo.id}>
-            {todo.todo}
-          </li>
-        </div>
-      ));
+
+      return todos.map((todo) => {
+        if (!todo.isDone) {
+          return (
+            <div className="list-todo" key={todo.id}>
+              <button className="checkbox" onClick={this.props.delete} value={todo.id}>
+								&#9744;
+              </button>
+              <li id={todo.id} onClick={this.props.complete} value={todo.id}>
+                {todo.todo}
+              </li>
+            </div>
+          );
+        }
+        return (
+          <div className="list-todo" key={todo.id}>
+            <button className="checkbox" onClick={this.props.delete} value={todo.id}>
+							&#9744;
+            </button>
+            <Li id={todo.id} onClick={this.props.complete} value={todo.id}>
+              {todo.todo}
+            </Li>
+          </div>
+        );
+      });
     };
+
     return (
       <Wrapper>
         <div className="desc-box">{Desc}</div>

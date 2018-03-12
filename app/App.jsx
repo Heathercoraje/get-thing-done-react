@@ -23,6 +23,7 @@ class App extends Component {
     this.deleteCategory = this.deleteCategory.bind(this);
     this.clickCate = this.clickCate.bind(this);
     this.HandleDesc = this.HandleDesc.bind(this);
+    this.complete = this.complete.bind(this);
   }
   addCategory(event) {
     const Categories = this.state.categories;
@@ -86,6 +87,7 @@ class App extends Component {
     });
   }
   deleteTodo(event) {
+    console.log(this.state);
     const todoIndex = this.state.selectedCategory;
     const Todos = this.state.todos;
     const newTodos = Todos[todoIndex].filter(todo => todo.id !== Number(event.target.value));
@@ -98,6 +100,16 @@ class App extends Component {
     const toDisplay = event.target.value;
     this.setState({
       selectedCategory: toDisplay
+    });
+  }
+  complete(e) {
+    const allTodos = this.state.todos;
+    const targetTodoArr = allTodos[this.state.selectedCategory];
+    const targetId = e.target.id;
+    targetTodoArr[targetId].isDone = !targetTodoArr[targetId].isDone;
+    allTodos.splice(this.state.selectedCategory, 1, targetTodoArr);
+    this.setState({
+      todos: allTodos
     });
   }
   render() {
@@ -117,6 +129,7 @@ class App extends Component {
           delete={this.deleteTodo}
           add={this.addTodo}
           HandleDesc={this.HandleDesc}
+          complete={this.complete}
         />
       </Wrapper>
     );
