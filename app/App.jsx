@@ -14,9 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       todos: [[]],
-      categories: [
-        { id: 0, category: 'Todo', desc: 'Get things done today. Yesterday, you said today' }
-      ],
+      categories: [{ id: 0, category: 'Todo', desc: 'Get things done today' }],
       selectedCategory: 0
     };
     this.addTodo = this.addTodo.bind(this);
@@ -33,7 +31,7 @@ class App extends Component {
     const newCategory = {
       id: Categories.length ? Categories[Categories.length - 1].id + 1 : 0,
       category: Name,
-      desc: 'Add a description of this category'
+      desc: ''
     };
 
     Categories.push(newCategory);
@@ -60,18 +58,17 @@ class App extends Component {
     });
   }
   HandleDesc(e) {
-    if (e.keyCode === 13) {
-      const current = this.state.categories;
-      const selected = this.state.selectedCategory;
-      const targetCate = current[selected];
-      delete targetCate.desc;
-      targetCate.desc = e.target.value;
-      current.splice(selected, 1, targetCate);
-      this.setState({
-        categories: current
-      });
-      e.preventDefault();
-    }
+    e.preventDefault();
+    const current = this.state.categories;
+    const selected = this.state.selectedCategory;
+    const targetCate = current[selected];
+    delete targetCate.desc;
+    targetCate.desc = e.target[0].value;
+    e.target[0].value = '';
+    current.splice(selected, 1, targetCate);
+    this.setState({
+      categories: current
+    });
   }
   addTodo(event) {
     const allTodos = this.state.todos;
