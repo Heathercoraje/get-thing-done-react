@@ -17,28 +17,12 @@ const Wrapper = styled.div`
 	color: #393939;
 `;
 
-const HandleDesc = (e) => {
-  if (e.keyCode === 13) {
-    document.getElementById('descForm').submit();
-  }
-};
-
 class Todo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      description: 'hello world'
-    };
-    this.HandleDesc = this.HandleDesc.bind(this);
+    this.state = {};
   }
-  HandleDesc(e) {
-    if (e.keyCode === 13) {
-      this.setState({
-        description: e.target.value
-      });
-      e.preventDefault();
-    }
-  }
+
   render() {
     return (
       <Wrapper>
@@ -47,8 +31,7 @@ class Todo extends Component {
           todos={this.props.todos}
           selected={this.props.selected}
           delete={this.props.delete}
-          HandleDesc={this.HandleDesc}
-          desc={this.state.description}
+          HandleDesc={this.props.HandleDesc}
         />
         <FormTodo add={this.props.add} selected={this.props.selected} />
       </Wrapper>
