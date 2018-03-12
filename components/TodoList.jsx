@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const DescBox = styled.textarea`
-	outline: none;
-	border: none;
-	width: 30vw;
-	height: 7vh;
+const Wrapper = styled.div`
+	width: 100%;
 `;
-
 const EditButton = styled.button`
 	background: transparent;
 	border: none;
@@ -25,6 +21,7 @@ const Title = styled.div`
 	align-items: center;
 `;
 const P = styled.p`
+	word-wrap: break-word;
 	font-size: 1.5vw;
 `;
 
@@ -96,10 +93,10 @@ class TodoList extends Component {
       ));
     };
     return (
-      <div className="">
-        <div>{Desc}</div>
+      <Wrapper>
+        <div className="desc-box">{Desc}</div>
         <div>{Renderlist(todos)}</div>
-      </div>
+      </Wrapper>
     );
   }
 }

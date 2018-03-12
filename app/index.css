@@ -75,6 +75,9 @@ input {
 }
 
 /* Todo */
+.desc-box {
+	margin-bottom: 3vh;
+}
 .desc,
 .desc::placeholder {
 	text-transform: capitalize;
