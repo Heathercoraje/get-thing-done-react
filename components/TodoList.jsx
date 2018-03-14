@@ -15,7 +15,9 @@ class TodoList extends Component {
   }
   render() {
     const todos = this.props.todos;
-    // console.log(this.props.todos.length, this.props.categories.length);
+    const selected = this.props.selected;
+    const name = this.props.categories[selected].category;
+    const descText = this.props.categories[selected].desc;
     const Renderlist = (todos) => {
       if (!todos) {
         return '';
@@ -40,12 +42,8 @@ class TodoList extends Component {
     return (
       <Wrapper>
         <Desc
-          name={this.props.categories[this.props.selected].category}
-          desc={
-            this.props.categories[this.props.selected].desc === ''
-              ? 'Add description of category'
-              : this.props.categories[this.props.selected].desc
-          }
+          name={name}
+          desc={descText === '' ? 'Add description of category' : descText}
           HandleDesc={this.props.HandleDesc}
         />
         <div>{Renderlist(todos)}</div>

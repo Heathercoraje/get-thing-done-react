@@ -1,32 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const DescBox = styled.div`
+	margin-bottom: 3vh;
+`;
 const Title = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 `;
-const EditButton = styled.button`
-	background: transparent;
-	border: none;
-	color: #cacaca;
-	font-size: 1.8rem;
-	padding: 0;
-	margin: 0;
-	font-weight: 100;
-	float: right;
-`;
-const Form = styled.form`
-	display: none;
-`;
-const P = styled.p`
-	word-wrap: break-word;
-	font-size: 1.5vw;
-	font-family: 'Merriweather Sans', sans-serif;
-	font-style: oblique;
-	color: gray;
-	text-transform: capitalize;
-`;
+
 class Desc extends Component {
   constructor(props) {
     super(props);
@@ -52,15 +35,18 @@ class Desc extends Component {
     const name = this.props.name;
     const desc = this.props.desc;
     return (
-      <div className="desc-box">
+      <DescBox className="desc-box">
         <Title>
           <h1 style={{ display: 'inline' }} className="todo-name">
             {name}
           </h1>
-          <EditButton onClick={this.toggle}> &#9997;</EditButton>
+          <button className="button-edit" onClick={this.toggle}>
+						&nbsp;&#9997;
+          </button>
         </Title>
-        <Form
+        <form
           id="form-desc"
+          className="form-desc"
           onSubmit={(evt) => {
             this.props.HandleDesc(evt);
             this.toggle();
@@ -75,11 +61,11 @@ class Desc extends Component {
             onChange={this.handleChange}
           />
           <input style={{ display: 'none' }} type="submit" />
-        </Form>
-        <P id="desc" class="desc" onClick={this.toggle}>
+        </form>
+        <p id="desc" className="desc" onClick={this.toggle}>
           {this.props.desc}
-        </P>
-      </div>
+        </p>
+      </DescBox>
     );
   }
 }
