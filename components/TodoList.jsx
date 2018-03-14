@@ -15,13 +15,13 @@ class TodoList extends Component {
   }
   render() {
     const todos = this.props.todos;
+    // console.log(this.props.todos.length, this.props.categories.length);
     const Renderlist = (todos) => {
-      if (todos.length === 0 || todos === undefined) {
+      if (!todos) {
         return '';
       }
-
       return todos.map(todo => (
-        <div className="list-todo" key={todo.id}>
+        <div key={todo.id} className="list-todo">
           <button className="checkbox" onClick={this.props.delete} value={todo.id}>
 						&#9744;
           </button>
