@@ -17,6 +17,11 @@ const Wrapper = styled.div`
 	color: #393939;
 `;
 
+const Icon = styled.div`
+	position: relative;
+	top: 0;
+	right: 0;
+`;
 class Todo extends Component {
   constructor(props) {
     super(props);

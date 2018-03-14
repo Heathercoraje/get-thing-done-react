@@ -24,9 +24,6 @@ const P = styled.p`
 	word-wrap: break-word;
 	font-size: 1.5vw;
 `;
-const Li = styled.li`
-	text-decoration: line-through;
-`;
 
 class TodoList extends Component {
   constructor(props) {
@@ -81,30 +78,21 @@ class TodoList extends Component {
         return '';
       }
 
-      return todos.map((todo) => {
-        if (!todo.isDone) {
-          return (
-            <div className="list-todo" key={todo.id}>
-              <button className="checkbox" onClick={this.props.delete} value={todo.id}>
-								&#9744;
-              </button>
-              <li id={todo.id} onClick={this.props.complete} value={todo.id}>
-                {todo.todo}
-              </li>
-            </div>
-          );
-        }
-        return (
-          <div className="list-todo" key={todo.id}>
-            <button className="checkbox" onClick={this.props.delete} value={todo.id}>
-							&#9744;
-            </button>
-            <Li id={todo.id} onClick={this.props.complete} value={todo.id}>
-              {todo.todo}
-            </Li>
-          </div>
-        );
-      });
+      return todos.map(todo => (
+        <div className="list-todo" key={todo.id}>
+          <button className="checkbox" onClick={this.props.delete} value={todo.id}>
+						&#9744;
+          </button>
+          <li
+            id={todo.id}
+            onClick={this.props.complete}
+            value={todo.id}
+            style={!todo.isDone ? null : { textDecoration: 'line-through' }}
+          >
+            {todo.todo}
+          </li>
+        </div>
+      ));
     };
 
     return (
