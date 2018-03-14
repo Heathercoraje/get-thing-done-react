@@ -17,12 +17,6 @@ const Wrapper = styled.div`
 	color: #393939;
 `;
 
-const Icon = styled.div`
-	position: relative;
-	top: 0;
-	right: 0;
-`;
-
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -31,15 +25,15 @@ class Todo extends Component {
     };
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
-    this.complete = this.complete.bind(this);
+    this.completeTodo = this.completeTodo.bind(this);
   }
-  addTodo(event) {
+  addTodo(evt) {
     const allTodos = this.state.todos;
     const selected = this.props.selected;
     const Todo = allTodos[selected] ? allTodos[selected] : [];
     const newTodo = {
       id: Todo.length === 0 ? 0 : Todo[Todo.length - 1].id + 1,
-      todo: event.target[0].value,
+      todo: evt.target[0].value,
       isDone: false
     };
     Todo.push(newTodo);
@@ -48,20 +42,20 @@ class Todo extends Component {
       todos: allTodos
     });
   }
-  deleteTodo(event) {
+  deleteTodo(evt) {
     const allTodos = this.state.todos;
     const selected = this.props.selected;
-    const newTodos = allTodos[selected].filter(todo => todo.id !== Number(event.target.value));
+    const newTodos = allTodos[selected].filter(todo => todo.id !== Number(evt.target.value));
     allTodos.splice(selected, 1, newTodos);
     this.setState({
       todos: allTodos
     });
   }
-  complete(e) {
+  completeTodo(evt) {
     const allTodos = this.state.todos;
     const selected = this.props.selected;
     const targetTodoArr = allTodos[selected];
-    const targetId = e.target.id;
+    const targetId = evt.target.id;
     targetTodoArr[targetId].isDone = !targetTodoArr[targetId].isDone;
     allTodos.splice(selected, 1, targetTodoArr);
     this.setState({
@@ -70,18 +64,18 @@ class Todo extends Component {
   }
 
   render() {
+    const selected = this.props.selected;
     return (
       <Wrapper>
         <TodoList
-          todos={this.state.todos[this.props.selected]}
+          todos={this.state.todos[selected]}
+          selected={selected}
           categories={this.props.categories}
-          selected={this.props.selected}
           HandleDesc={this.props.HandleDesc}
           delete={this.deleteTodo}
-          complete={this.complete}
-          addArray={this.addArray}
+          complete={this.completeTodo}
         />
-        <FormTodo add={this.addTodo} selected={this.props.selected} />
+        <FormTodo add={this.addTodo} selected={selected} />
       </Wrapper>
     );
   }
