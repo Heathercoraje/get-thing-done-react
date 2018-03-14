@@ -40,6 +40,18 @@ input {
 	font-weight: 700;
 	margin-bottom: 2rem;
 }
+.input-gen {
+	height: 1.4rem;
+	font-size: 1.3vw;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+.input-cate {
+	width: 12vw;
+	border-bottom: 1.4px solid #ddd;
+	color: #fff;
+}
 
 /* Catergoy: left */
 .button-add {
@@ -74,16 +86,6 @@ input {
 	margin-top: auto;
 }
 
-.input-field {
-	width: 12vw;
-	color: white;
-	outline: none;
-	border: none;
-	border-bottom: 1.4px solid #ddd;
-	font-size: 1.3vw;
-	background: transparent;
-	height: 1.4rem;
-}
 .input-field::placeholder {
 	font-size: 1.3vw;
 }
@@ -143,13 +145,11 @@ input {
 	background-color: transparent;
 	border: 0;
 }
-.todo-field {
-	width: 24vw;
+
+.input-todo {
+	width: 26vw;
 	border-bottom: 1.4px solid #cacaca;
 	color: #393939;
-}
-.todo-field::placeholder {
-	color: #cacaca;
 }
 
 /* Optional */
@@ -162,7 +162,4 @@ input {
 }
 .show {
 	display: block;
-}
-.complete {
-	color: red;
 }

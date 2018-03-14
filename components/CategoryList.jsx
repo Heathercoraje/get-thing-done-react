@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	padding-left: 0.6rem;
+	color: white;
 `;
 const DeleteParent = styled.button`
 	background: transparent;
