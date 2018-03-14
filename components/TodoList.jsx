@@ -37,7 +37,7 @@ class TodoList extends Component {
   toggle() {
     document.getElementById('input-desc').classList.toggle('show');
     document.getElementById('desc').classList.toggle('hide');
-
+    this.descInput.focus();
     this.setState({
       editMode: !this.state.editMode
     });
@@ -67,10 +67,18 @@ class TodoList extends Component {
             this.toggle();
           }}
         >
-          <input size="22" className="input-desc" type="text" placeholder={desc} />
+          <input
+            size="22"
+            className="input-desc"
+            type="text"
+            placeholder={desc}
+            ref={input => (this.descInput = input)}
+          />
           <input style={{ display: 'none' }} type="submit" />
         </form>
-        <P id="desc">{desc}</P>
+        <P id="desc" onClick={this.toggle}>
+          {desc}
+        </P>
       </div>
     );
     const Renderlist = (todos) => {
