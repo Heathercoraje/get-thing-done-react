@@ -5,6 +5,7 @@ import HandleClickInput from './HandleClickInput';
 const Wrapper = styled.div`
 	margin-top: auto;
 `;
+
 const FormTodo = ({ add }) => {
   const onClickInput = (e) => {
     const input = document.getElementById('input-todo');
