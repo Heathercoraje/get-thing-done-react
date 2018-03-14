@@ -74,17 +74,36 @@ input {
 	margin-top: auto;
 }
 
-/* Todo */
-.desc-box {
-	margin-bottom: 3vh;
+/* left */
+.input-field {
+	width: 12vw;
+	color: white;
+	outline: none;
+	border: none;
+	border-bottom: 1.4px solid #ddd;
+	font-size: 1.3vw;
+	background: transparent;
+	height: 1.4rem;
 }
-.desc,
-.desc::placeholder {
-	text-transform: capitalize;
-	font-size: 1.2vw;
-	resize: none;
-	font-style: oblique;
+.input-field::placeholder {
+	font-size: 1.3vw;
+}
+.delete-child {
+	/* display: none; */
+}
+
+/* Todo:right */
+.form-desc {
+	display: none;
+}
+.input-desc,
+.input-desc::placeholder {
+	font-size: 1.5vw;
 	color: gray;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-style: oblique;
+	border: none;
+	outline: none;
 }
 
 .todo-name {
@@ -107,31 +126,6 @@ input {
 	background-color: transparent;
 	border: 0;
 }
-
-.input-desc,
-.input-desc::placeholder {
-	font-size: 1.5vw;
-	font-family: 'Merriweather Sans', sans-serif;
-	border: none;
-	outline: none;
-}
-/* Optional */
-
-/* left */
-.input-field {
-	width: 12vw;
-	color: white;
-	outline: none;
-	border: none;
-	border-bottom: 1.4px solid #ddd;
-	font-size: 1.3vw;
-	background: transparent;
-	height: 1.4rem;
-}
-.input-field::placeholder {
-	font-size: 1.3vw;
-}
-
 .todo-field {
 	width: 24vw;
 	border-bottom: 1.4px solid #cacaca;
@@ -140,14 +134,9 @@ input {
 .todo-field::placeholder {
 	color: #cacaca;
 }
-.delete-child {
-	/* display: none; */
-}
 
-/* right */
-.form-edit {
-	display: none;
-}
+/* Optional */
+
 .hide {
 	display: none;
 }

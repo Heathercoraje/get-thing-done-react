@@ -47,7 +47,6 @@ class Todo extends Component {
     this.setState({
       todos: allTodos
     });
-    console.log(allTodos);
   }
   deleteTodo(event) {
     const allTodos = this.state.todos;
@@ -55,7 +54,7 @@ class Todo extends Component {
     const newTodos = allTodos[selected].filter(todo => todo.id !== Number(event.target.value));
     allTodos.splice(selected, 1, newTodos);
     this.setState({
-      todos: Todos
+      todos: allTodos
     });
   }
   complete(e) {

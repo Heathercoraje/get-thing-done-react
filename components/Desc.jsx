@@ -6,7 +6,6 @@ const Title = styled.div`
 	justify-content: flex-start;
 	align-items: center;
 `;
-
 const EditButton = styled.button`
 	background: transparent;
 	border: none;
@@ -17,9 +16,16 @@ const EditButton = styled.button`
 	font-weight: 100;
 	float: right;
 `;
+const Form = styled.form`
+	display: none;
+`;
 const P = styled.p`
 	word-wrap: break-word;
 	font-size: 1.5vw;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-style: oblique;
+	color: gray;
+	text-transform: capitalize;
 `;
 class Desc extends Component {
   constructor(props) {
@@ -32,7 +38,7 @@ class Desc extends Component {
   }
 
   toggle() {
-    document.getElementById('input-desc').classList.toggle('show');
+    document.getElementById('form-desc').classList.toggle('show');
     document.getElementById('desc').classList.toggle('hide');
     this.descInput.focus();
   }
@@ -41,25 +47,22 @@ class Desc extends Component {
     this.setState({
       value: this.props.desc
     });
-    console.log(this.state.value);
   }
   render() {
     const name = this.props.name;
     const desc = this.props.desc;
-
     return (
-      <div>
+      <div className="desc-box">
         <Title>
           <h1 style={{ display: 'inline' }} className="todo-name">
             {name}
           </h1>
-          <EditButton onClick={this.toggle}>&#9997;</EditButton>
+          <EditButton onClick={this.toggle}> &#9997;</EditButton>
         </Title>
-        <form
-          id="input-desc"
-          className="form-edit"
-          onSubmit={(e) => {
-            this.props.HandleDesc(e);
+        <Form
+          id="form-desc"
+          onSubmit={(evt) => {
+            this.props.HandleDesc(evt);
             this.toggle();
           }}
         >
@@ -72,8 +75,8 @@ class Desc extends Component {
             onChange={this.handleChange}
           />
           <input style={{ display: 'none' }} type="submit" />
-        </form>
-        <P id="desc" onClick={this.toggle}>
+        </Form>
+        <P id="desc" class="desc" onClick={this.toggle}>
           {this.props.desc}
         </P>
       </div>
