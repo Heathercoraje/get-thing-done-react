@@ -21,7 +21,7 @@ class FormCategory extends Component {
           placeholder=" New category"
           id="input-cate"
           style={{ display: 'none' }}
-          className="input-field"
+          className="input-gen input-cate"
         />
         <input type="submit" value="+" className="button-add" />
       </form>

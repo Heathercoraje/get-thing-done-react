@@ -31,7 +31,7 @@ input {
 }
 /* module*/
 
-.Title {
+.logo {
 	letter-spacing: 0 !important;
 	text-align: center;
 	font-size: 2.1vw;
@@ -40,8 +40,20 @@ input {
 	font-weight: 700;
 	margin-bottom: 2rem;
 }
+.input-gen {
+	height: 1.4rem;
+	font-size: 1.3vw;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+.input-cate {
+	width: 12vw;
+	border-bottom: 1.4px solid #ddd;
+	color: #fff;
+}
 
-/* Catergoy */
+/* Catergoy: left */
 .button-add {
 	float: right;
 	font-size: 1.6rem;
@@ -74,19 +86,45 @@ input {
 	margin-top: auto;
 }
 
-/* Todo */
-.desc-box {
-	margin-bottom: 3vh;
+.input-field::placeholder {
+	font-size: 1.3vw;
 }
-.desc,
-.desc::placeholder {
-	text-transform: capitalize;
-	font-size: 1.2vw;
-	resize: none;
-	font-style: oblique;
-	color: gray;
+.delete-child {
+	/* display: none; */
 }
 
+/* Todo:right */
+
+.form-desc {
+	display: none;
+}
+.button-edit {
+	background: transparent;
+	border: none;
+	color: #cacaca;
+	font-size: 1.8rem;
+	padding: 0;
+	margin: 0;
+	font-weight: 100;
+	float: right;
+}
+.input-desc,
+.input-desc::placeholder {
+	font-size: 1.5vw;
+	color: gray;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-style: oblique;
+	border: none;
+	outline: none;
+}
+.desc {
+	word-wrap: break-word;
+	font-size: 1.5vw;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-style: oblique;
+	color: gray;
+	text-transform: capitalize;
+}
 .todo-name {
 	font-size: 2.3vw;
 	margin-bottom: 1vh;
@@ -108,44 +146,15 @@ input {
 	border: 0;
 }
 
-.input-desc,
-.input-desc::placeholder {
-	font-size: 1.5vw;
-	font-family: 'Merriweather Sans', sans-serif;
-	border: none;
-	outline: none;
-}
-/* Optional */
-
-/* left */
-.input-field {
-	width: 12vw;
-	color: white;
-	outline: none;
-	border: none;
-	border-bottom: 1.4px solid #ddd;
-	font-size: 1.3vw;
-	background: transparent;
-	height: 1.4rem;
-}
-.input-field::placeholder {
-	font-size: 1.3vw;
-}
-
-.todo-field {
-	width: 24vw;
+.input-todo {
+	width: 26vw;
 	border-bottom: 1.4px solid #cacaca;
 	color: #393939;
 }
-.todo-field::placeholder {
-	color: #cacaca;
-}
-.delete-child {
-	/* display: none; */
-}
 
-/* right */
-.form-edit {
+/* Optional */
+
+.form-desc {
 	display: none;
 }
 .hide {
@@ -153,7 +162,4 @@ input {
 }
 .show {
 	display: block;
-}
-.complete {
-	color: red;
 }

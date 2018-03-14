@@ -21,11 +21,11 @@ const InnerWrapper = styled.div`
 	margin-top: auto;
 `;
 
-const Title = <h3 className="Title">Get things done</h3>;
+const Logo = <h3 className="logo">Get things done</h3>;
 
 const Category = props => (
   <Wrapper>
-    {Title}
+    {Logo}
     <CategoryList
       className="category-list"
       click={props.click}

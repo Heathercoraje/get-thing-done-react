@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const DescBox = styled.div`
+	margin-bottom: 3vh;
+`;
 const Title = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 `;
 
-const EditButton = styled.button`
-	background: transparent;
-	border: none;
-	color: #cacaca;
-	font-size: 1.8rem;
-	padding: 0;
-	margin: 0;
-	font-weight: 100;
-	float: right;
-`;
-const P = styled.p`
-	word-wrap: break-word;
-	font-size: 1.5vw;
-`;
 class Desc extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +21,7 @@ class Desc extends Component {
   }
 
   toggle() {
-    document.getElementById('input-desc').classList.toggle('show');
+    document.getElementById('form-desc').classList.toggle('show');
     document.getElementById('desc').classList.toggle('hide');
     this.descInput.focus();
   }
@@ -41,25 +30,25 @@ class Desc extends Component {
     this.setState({
       value: this.props.desc
     });
-    console.log(this.state.value);
   }
   render() {
     const name = this.props.name;
     const desc = this.props.desc;
-
     return (
-      <div>
+      <DescBox className="desc-box">
         <Title>
           <h1 style={{ display: 'inline' }} className="todo-name">
             {name}
           </h1>
-          <EditButton onClick={this.toggle}>&#9997;</EditButton>
+          <button className="button-edit" onClick={this.toggle}>
+						&nbsp;&#9997;
+          </button>
         </Title>
         <form
-          id="input-desc"
-          className="form-edit"
-          onSubmit={(e) => {
-            this.props.HandleDesc(e);
+          id="form-desc"
+          className="form-desc"
+          onSubmit={(evt) => {
+            this.props.HandleDesc(evt);
             this.toggle();
           }}
         >
@@ -73,10 +62,10 @@ class Desc extends Component {
           />
           <input style={{ display: 'none' }} type="submit" />
         </form>
-        <P id="desc" onClick={this.toggle}>
+        <p id="desc" className="desc" onClick={this.toggle}>
           {this.props.desc}
-        </P>
-      </div>
+        </p>
+      </DescBox>
     );
   }
 }
