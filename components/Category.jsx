@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import CategoryList from './CategoryList';
 import FormCategory from './FormCategory';
-import DeleteButton from './DeleteButton';
 
 const Wrapper = styled.div`
 	box-sizing: border-box;
@@ -16,11 +15,6 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
-
-const InnerWrapper = styled.div`
-	margin-top: auto;
-`;
-
 const Logo = <h3 className="logo">Get things done</h3>;
 
 const Category = props => (

@@ -5,16 +5,6 @@ const Wrapper = styled.div`
 	padding-left: 0.6rem;
 	color: white;
 `;
-const DeleteParent = styled.button`
-	background: transparent;
-	border: none;
-	color: #cacaca;
-	font-size: 1.8rem;
-	padding: 0;
-	margin: 0;
-	font-weight: 100;
-`;
-
 const CategoryList = (props) => {
   const Categories = props.categories.slice(1);
   const Renderlist = categories =>
@@ -23,18 +13,18 @@ const CategoryList = (props) => {
         <li onClick={props.click} value={category.id} className="category-text">
           {category.name}
         </li>
-        <DeleteParent onClick={props.delete} value={category.id}>
+        <button className="button-delete" onClick={props.delete} value={category.id}>
 					&#8854;
-        </DeleteParent>
+        </button>
       </div>
     ));
+
   return (
     <Wrapper>
       <div className="category-div">
-        <li onClick={props.click} value="0" className="category-text">
+        <li className="category-text" onClick={props.click} value="0">
 					Todo
         </li>
-        <DeleteParent>&#8854;</DeleteParent>
       </div>
       <div>{Renderlist(props.categories)}</div>
     </Wrapper>

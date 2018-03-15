@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HandleClickInput from './HandleClickInput';
+import HandleClickInput from '../lib/HandleClickInput';
 
 const Wrapper = styled.div`
 	margin-top: auto;

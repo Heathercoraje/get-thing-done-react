@@ -67,6 +67,15 @@ input {
 	cursor: pointer;
 }
 
+.button-delete {
+	background: transparent;
+	border: none;
+	color: #cacaca;
+	font-size: 1.8rem;
+	padding: 0;
+	margin: 0;
+	font-weight: 100;
+}
 .category-div {
 	height: 1.8rem;
 	border-bottom: 0.2rem transparent solid;
