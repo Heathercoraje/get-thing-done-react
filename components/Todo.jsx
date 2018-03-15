@@ -33,7 +33,6 @@ class Todo extends Component {
     const category = this.props.categories[selected];
     const name = category.name;
     // if this is a new categoty add new key of category and add empty array
-    console.log(allTodos[`${name}`]);
     if (!allTodos[`${name}`]) {
       allTodos[`${name}`] = [];
     }
@@ -51,8 +50,10 @@ class Todo extends Component {
   deleteTodo(evt) {
     const allTodos = this.state.todos;
     const selected = this.props.selected;
-    const newTodos = allTodos[selected].filter(todo => todo.id !== Number(evt.target.value));
-    allTodos.splice(selected, 1, newTodos);
+    const category = this.props.categories[selected];
+    const name = category.name;
+    const newTodos = allTodos[`${name}`].filter(todo => todo.id !== Number(evt.target.value));
+    allTodos[`${name}`] = newTodos;
     this.setState({
       todos: allTodos
     });
@@ -60,10 +61,12 @@ class Todo extends Component {
   completeTodo(evt) {
     const allTodos = this.state.todos;
     const selected = this.props.selected;
-    const targetTodoArr = allTodos[selected];
+    const category = this.props.categories[selected];
+    const name = category.name;
+    const targetTodoArr = allTodos[`${name}`];
     const targetId = evt.target.id;
     targetTodoArr[targetId].isDone = !targetTodoArr[targetId].isDone;
-    allTodos.splice(selected, 1, targetTodoArr);
+    allTodos[`${name}`] = targetTodoArr;
     this.setState({
       todos: allTodos
     });
@@ -71,10 +74,12 @@ class Todo extends Component {
 
   render() {
     const selected = this.props.selected;
+    const category = this.props.categories[selected];
+    const name = category.name;
     return (
       <Wrapper>
         <TodoList
-          todos={this.state.todos[selected]}
+          todos={this.state.todos[`${name}`]}
           selected={selected}
           categories={this.props.categories}
           HandleDesc={this.props.HandleDesc}

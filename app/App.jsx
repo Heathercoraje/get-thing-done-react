@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       // todos: [[]],
-      categories: [{ id: 0, name: 'Base', desc: 'Get things done today' }],
+      categories: [{ id: 0, name: 'Todo', desc: 'Get things done today' }],
       selectedCategory: 0
     };
     // this.addTodo = this.addTodo.bind(this);
