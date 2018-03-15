@@ -16,7 +16,7 @@ class TodoList extends Component {
   render() {
     const todos = this.props.todos;
     const selected = this.props.selected;
-    const name = this.props.categories[selected].category;
+    const name = this.props.name;
     const descText = this.props.categories[selected].desc;
     const Renderlist = (todos) => {
       if (!todos) {
