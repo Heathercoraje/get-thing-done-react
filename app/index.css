@@ -30,6 +30,15 @@ input {
 	outline: none;
 }
 /* module*/
+.input-gen {
+	height: 1.4rem;
+	font-size: 1.4vw;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+/* Catergoy: left */
 
 .logo {
 	letter-spacing: 0 !important;
@@ -40,20 +49,6 @@ input {
 	font-weight: 700;
 	margin-bottom: 2rem;
 }
-.input-gen {
-	height: 1.4rem;
-	font-size: 1.3vw;
-	outline: none;
-	border: none;
-	background: transparent;
-}
-.input-cate {
-	width: 12vw;
-	border-bottom: 1.4px solid #ddd;
-	color: #fff;
-}
-
-/* Catergoy: left */
 .button-add {
 	float: right;
 	font-size: 1.6rem;
@@ -70,15 +65,20 @@ input {
 .button-delete {
 	background: transparent;
 	border: none;
-	color: #cacaca;
+	color: #282828;
 	font-size: 1.8rem;
 	padding: 0;
 	margin: 0;
 	font-weight: 100;
+	cursor: pointer;
+}
+.button-delete:hover {
+	color: #fff;
 }
 .category-div {
 	height: 1.8rem;
 	border-bottom: 0.2rem transparent solid;
+	cursor: pointer;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -94,12 +94,14 @@ input {
 .form {
 	margin-top: auto;
 }
+.input-cate {
+	width: 12vw;
+	border-bottom: 1.4px solid #ddd;
+	color: #fff;
+}
 
 .input-field::placeholder {
 	font-size: 1.3vw;
-}
-.delete-child {
-	/* display: none; */
 }
 
 /* Todo:right */
@@ -110,6 +112,7 @@ input {
 .button-edit {
 	background: transparent;
 	border: none;
+	cursor: pointer;
 	color: #cacaca;
 	font-size: 1.8rem;
 	padding: 0;
@@ -125,6 +128,7 @@ input {
 	font-style: oblique;
 	border: none;
 	outline: none;
+	cursor: pointer;
 }
 .desc {
 	word-wrap: break-word;
@@ -132,6 +136,7 @@ input {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-style: oblique;
 	color: gray;
+	cursor: pointer;
 	text-transform: capitalize;
 }
 .todo-name {

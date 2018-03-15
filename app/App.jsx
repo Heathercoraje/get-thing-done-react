@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Category from '../components/Category';
 import Todo from '../components/Todo';
+import CheckDupli from '../lib/CheckDupli';
 
 const Wrapper = styled.div`
 	width: 60%;
@@ -25,12 +26,15 @@ class App extends Component {
     const Categories = this.state.categories;
     const Todos = this.state.todos;
     const Name = event.target[0].value.charAt(0).toUpperCase() + event.target[0].value.slice(1);
+    if (CheckDupli(Name, Categories)) {
+      alert('duplicate cannot be added!');
+      return;
+    }
     const newCategory = {
       id: Categories.length ? Categories[Categories.length - 1].id + 1 : 0,
       name: Name,
       desc: ''
     };
-
     Categories.push(newCategory);
     const toDisplay = Categories.length - 1;
     this.setState({
