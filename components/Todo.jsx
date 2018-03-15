@@ -21,23 +21,32 @@ class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [[]]
+      todos: {}
     };
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.completeTodo = this.completeTodo.bind(this);
   }
   addTodo(evt) {
-    const allTodos = this.state.todos;
+    const allTodos = Object.assign(this.state.todos);
     const selected = this.props.selected;
-    const Todo = allTodos[selected] ? allTodos[selected] : [];
+    const category = this.props.categories[selected];
+    const name = category.name;
+    // if this is a new categoty add new key of category and add empty array
+    console.log(name);
+    if (!allTodos.name) {
+      console.log('hit');
+      allTodos[`${name}`] = [];
+    }
+    console.log();
+    const Todo = allTodos[`${name}`];
     const newTodo = {
       id: Todo.length === 0 ? 0 : Todo[Todo.length - 1].id + 1,
       todo: evt.target[0].value,
       isDone: false
     };
     Todo.push(newTodo);
-    allTodos.splice(selected, 1, Todo);
+    // allTodos.splice(selected, 1, Todo);
     this.setState({
       todos: allTodos
     });
