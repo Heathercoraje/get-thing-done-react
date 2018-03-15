@@ -76,11 +76,13 @@ class Todo extends Component {
     const selected = this.props.selected;
     const category = this.props.categories[selected];
     const name = category.name;
+    console.log('me!', name);
     return (
       <Wrapper>
         <TodoList
           todos={this.state.todos[`${name}`]}
           selected={selected}
+          name={name}
           categories={this.props.categories}
           HandleDesc={this.props.HandleDesc}
           delete={this.deleteTodo}
