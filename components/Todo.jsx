@@ -28,17 +28,15 @@ class Todo extends Component {
     this.completeTodo = this.completeTodo.bind(this);
   }
   addTodo(evt) {
-    const allTodos = Object.assign(this.state.todos);
+    const allTodos = this.state.todos;
     const selected = this.props.selected;
     const category = this.props.categories[selected];
     const name = category.name;
     // if this is a new categoty add new key of category and add empty array
-    console.log(name);
-    if (!allTodos.name) {
-      console.log('hit');
+    console.log(allTodos[`${name}`]);
+    if (!allTodos[`${name}`]) {
       allTodos[`${name}`] = [];
     }
-    console.log();
     const Todo = allTodos[`${name}`];
     const newTodo = {
       id: Todo.length === 0 ? 0 : Todo[Todo.length - 1].id + 1,
@@ -46,7 +44,6 @@ class Todo extends Component {
       isDone: false
     };
     Todo.push(newTodo);
-    // allTodos.splice(selected, 1, Todo);
     this.setState({
       todos: allTodos
     });
