@@ -26,7 +26,7 @@ class App extends Component {
     const Categories = this.state.categories;
     const Todos = this.state.todos;
     const Name = event.target[0].value.charAt(0).toUpperCase() + event.target[0].value.slice(1);
-    if (CheckDupli(Name, Categories) === true) {
+    if (CheckDupli(Name, Categories)) {
       alert('duplicate cannot be added!');
       return;
     }
