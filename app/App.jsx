@@ -51,21 +51,21 @@ class App extends Component {
       selectedCategory: toDisplay
     });
   }
-  HandleDesc(e) {
-    e.preventDefault();
+  HandleDesc(evt) {
+    evt.preventDefault();
     const current = this.state.categories;
     const selected = this.state.selectedCategory;
     const targetCate = current[selected];
     delete targetCate.desc;
-    targetCate.desc = e.target[0].value;
-    e.target[0].value = '';
+    targetCate.desc = evt.target[0].value;
+    evt.target[0].value = '';
     current.splice(selected, 1, targetCate);
     this.setState({
       categories: current
     });
   }
-  clickCate(event) {
-    const toDisplay = event.target.value;
+  clickCate(evt) {
+    const toDisplay = evt.target.value;
     this.setState({
       selectedCategory: toDisplay
     });
