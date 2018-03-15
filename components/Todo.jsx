@@ -16,7 +16,6 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	color: #393939;
 `;
-
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +25,25 @@ class Todo extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.completeTodo = this.completeTodo.bind(this);
+    this.updateTodoObj = this.updateTodoObj.bind(this);
+  }
+
+  componentWillReceiveProps(Nextprops) {
+    this.updateTodoObj(Nextprops);
+  }
+
+  updateTodoObj(Nextprops) {
+    const todoObj = Object.assign(this.state.todos);
+    const updatedCategories = Nextprops.categories.map(category => category.name);
+    for (const name in todoObj) {
+      if (updatedCategories.indexOf(name) < 0) {
+        delete todoObj[name];
+      }
+      continue;
+    }
+    this.setState({
+      todos: todoObj
+    });
   }
   addTodo(evt) {
     const allTodos = this.state.todos;
@@ -76,7 +94,6 @@ class Todo extends Component {
     const selected = this.props.selected;
     const category = this.props.categories[selected];
     const name = category.name;
-    console.log('me!', name);
     return (
       <Wrapper>
         <TodoList

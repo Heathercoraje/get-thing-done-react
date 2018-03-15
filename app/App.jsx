@@ -46,11 +46,9 @@ class App extends Component {
     const newCategories = Categories.filter(category => category.id !== Number(event.target.value));
     const toDisplay =
    Number(event.target.value) === PrevToDisplay ? PrevToDisplay - 1 : PrevToDisplay;
-    const newTodos = Todos.filter(todo => Todos.indexOf(todo) !== Number(event.target.value));
     this.setState({
       categories: newCategories,
-      selectedCategory: toDisplay,
-      todos: newTodos
+      selectedCategory: toDisplay
     });
   }
   HandleDesc(e) {
