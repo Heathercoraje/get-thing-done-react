@@ -49,7 +49,7 @@ class App extends Component {
     const Todos = this.state.todos;
     const newCategories = Categories.filter(category => category.id !== Number(event.target.value));
     const toDisplay =
-   Number(event.target.value) === PrevToDisplay ? PrevToDisplay - 1 : PrevToDisplay;
+   Number(event.target.value) === PrevToDisplay ? PrevToDisplay - 1 : newCategories.length - 1;
     this.setState({
       categories: newCategories,
       selectedCategory: toDisplay
