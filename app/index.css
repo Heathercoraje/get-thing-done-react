@@ -10,6 +10,9 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+div {
+	word-wrap: break-word;
+}
 h1,
 h2,
 h3,
@@ -105,7 +108,11 @@ input {
 }
 
 /* Todo:right */
-
+.cate-title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
 .form-desc {
 	display: none;
 }
@@ -168,12 +175,29 @@ input {
 
 /* Optional */
 
-.form-desc {
-	display: none;
-}
 .hide {
 	display: none;
 }
 .show {
 	display: block;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 0.6vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cacaca;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #cacaca;
 }

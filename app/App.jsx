@@ -57,6 +57,7 @@ class App extends Component {
 	  const targetCate = current[selected];
 	  delete targetCate.desc;
 	  targetCate.desc = evt.target[0].value;
+	  console.log(targetCate.desc);
 	  evt.target[0].value = '';
 	  current.splice(selected, 1, targetCate);
 	  this.setState({
