@@ -15,18 +15,8 @@ class App extends Component {
    categories: [{ id: 0, name: 'Todo', desc: 'Get things done today' }],
    selectedCategory: 0
  };
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     categories: [{ id: 0, name: 'Todo', desc: 'Get things done today' }],
-  //     selectedCategory: 0
-  //   };
-  //   this.addCategory = this.addCategory.bind(this);
-  //   this.deleteCategory = this.deleteCategory.bind(this);
-  //   this.clickCate = this.clickCate.bind(this);
-  //   this.HandleDesc = this.HandleDesc.bind(this);
-  // }
- addCategory(event) {
+
+ addCategory = (event) => {
    const Categories = this.state.categories;
    const Todos = this.state.todos;
    const Name = event.target[0].value.charAt(0).toUpperCase() + event.target[0].value.slice(1);
@@ -46,8 +36,8 @@ class App extends Component {
      selectedCategory: toDisplay,
      todos: Todos
    });
- }
- deleteCategory(event) {
+ };
+ deleteCategory = (event) => {
    const Categories = this.state.categories;
    const PrevToDisplay = this.state.selectedCategory;
    const Todos = this.state.todos;
@@ -58,8 +48,8 @@ class App extends Component {
      categories: newCategories,
      selectedCategory: toDisplay
    });
- }
- HandleDesc(evt) {
+ };
+ HandleDesc = (evt) => {
    evt.preventDefault();
    const current = this.state.categories;
    const selected = this.state.selectedCategory;
@@ -71,13 +61,13 @@ class App extends Component {
    this.setState({
      categories: current
    });
- }
- clickCate(evt) {
+ };
+ clickCate = (evt) => {
    const toDisplay = evt.target.value;
    this.setState({
      selectedCategory: toDisplay
    });
- }
+ };
 
  render() {
    return (
