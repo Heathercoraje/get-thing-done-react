@@ -15,11 +15,8 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['env', 'react']
-        }
+        loader: './node_modules/babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
