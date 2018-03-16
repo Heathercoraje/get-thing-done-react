@@ -7,17 +7,15 @@ const Wrapper = styled.div`
 `;
 const CategoryList = (props) => {
   const Categories = props.categories.slice(1);
-  const Renderlist = categories =>
-    Categories.map(category => (
-      <div key={category.id} className="category-div">
-        <li onClick={props.click} value={category.id} className="category-text">
-          {category.name}
-        </li>
-        <button className="button-delete" onClick={props.delete} value={category.id}>
-					&#8854;
-        </button>
-      </div>
-    ));
+  const Renderlist = Categories.map(category => (
+    <CategoryItem
+      key={category.id}
+      name={category.name}
+      id={category.id}
+      click={props.click}
+      delete={props.delete}
+    />
+  ));
 
   return (
     <Wrapper>
@@ -26,9 +24,20 @@ const CategoryList = (props) => {
 					Todo
         </li>
       </div>
-      <div>{Renderlist(props.categories)}</div>
+      <div>{Renderlist}</div>
     </Wrapper>
   );
 };
+
+const CategoryItem = props => (
+  <div className="category-div">
+    <li onClick={props.click} value={props.id} className="category-text">
+      {props.name}
+    </li>
+    <button className="button-delete" onClick={props.delete} value={props.id}>
+			&#8854;
+    </button>
+  </div>
+);
 
 export default CategoryList;
