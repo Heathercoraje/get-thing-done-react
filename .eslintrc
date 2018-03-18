@@ -5,6 +5,12 @@
     "jsx-a11y",
     "import"
   ],
+  "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
   "rules": {
     "comma-dangle": ["error", "never"],
     "no-unused-vars": 0

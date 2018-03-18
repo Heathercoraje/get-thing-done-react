@@ -7,77 +7,85 @@ const DescBox = styled.div`
 `;
 
 class Desc extends Component {
-  render() {
-    const name = this.props.name;
-    const desc = this.props.desc;
-    return (
-      <DescBox className="desc-box">
-        <DescForm name={name} desc={desc} HandleDesc={this.props.HandleDesc} />
-      </DescBox>
-    );
-  }
+	render() {
+		const name = this.props.name;
+		const description = this.props.description;
+		return (
+			<DescBox className="desc-box">
+				<DescForm
+					name={name}
+					description={description}
+					HandleDesc={this.props.HandleDesc}
+				/>
+			</DescBox>
+		);
+	}
 }
 
 class DescForm extends Component {
 	state = {
-	  value: '',
-	  edit: false
+		edit: false
+	};
+	componentWillReceiveProps() {
+		this.setState({
+			edit: false
+		});
+	}
+	toggle = () => {
+		const prev = this.state.edit;
+		this.setState({
+			edit: !prev
+		});
+		setTimeout(() => {
+			this.ref.focus();
+		});
 	};
 
-	toggle = () => {
-	  const prev = this.state.edit;
-	  this.setState({
-	    edit: !prev
-	  });
-	  this.descInput.focus();
-	};
-	handleChange = (evt) => {
-	  this.setState({
-	    value: this.props.desc
-	  });
-	};
 	render() {
-	  const name = this.props.name;
-	  const desc = this.props.desc;
-	  return (
-	    <div>
-	      <Title name={name} toggle={this.toggle} />
-	      <form
-	        className={this.state.edit ? 'show' : 'hide'}
-	        onSubmit={(evt) => {
-	          this.props.HandleDesc(evt);
-	          this.toggle();
-	        }}
-	      >
-	        <input
-	          size="22"
-	          className="input-desc"
-	          type="text"
-	          placeholder={this.props.desc}
-	          ref={input => (this.descInput = input)}
-	          onChange={this.handleChange}
-	        />
-	        <input style={{ display: 'none' }} type="submit" />
-	      </form>
-	      <div
-	        id="desc"
-	        className={`desc ${this.state.edit ? 'hide' : 'show'}`}
-	        onClick={this.toggle}
-	      >
-	        {desc}
-	      </div>
-	    </div>
-	  );
+		const name = this.props.name;
+		const description = this.props.description;
+		return (
+			<div>
+				<div className="cate-title">
+					<h1 style={{ display: 'inline' }} className="todo-name">
+						{name}
+					</h1>
+					<button
+						className="button-edit"
+						onClick={() => {
+							this.toggle();
+						}}
+					>
+						&nbsp;&#9997;
+					</button>
+				</div>
+				<form
+					className={this.state.edit ? 'show' : 'hide'}
+					onSubmit={evt => {
+						this.props.HandleDesc(evt);
+						this.toggle();
+					}}
+				>
+					<input
+						ref={c => (this.ref = c)}
+						size="22"
+						className="input-desc"
+						type="text"
+						placeholder={description}
+						onBlur={evt => this.props.HandleDesc(evt)}
+					/>
+					<input style={{ display: 'none' }} type="submit" />
+				</form>
+				<div
+					id="desc"
+					className={`desc ${this.state.edit ? 'hide' : 'show'}`}
+					onClick={this.toggle}
+				>
+					{description}
+				</div>
+			</div>
+		);
 	}
 }
-const Title = props => (
-  <div className="cate-title">
-    <h1 style={{ display: 'inline' }} className="todo-name">
-      {props.name}
-    </h1>
-    <button className="button-edit" onClick={props.toggle}>
-			&nbsp;&#9997;
-    </button>
-  </div>
-);
+
 export default Desc;

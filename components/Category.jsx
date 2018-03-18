@@ -15,20 +15,12 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
-const Logo = <h3 className="logo">Get things done</h3>;
-
 const Category = props => (
-  <Wrapper>
-    {Logo}
-    <CategoryList
-      className="category-list"
-      click={props.click}
-      categories={props.categories}
-      selected={props.selected}
-      delete={props.delete}
-    />
-    <FormCategory add={props.add} />
-  </Wrapper>
+	<Wrapper>
+		<h3 className="logo">Get Things Done</h3>
+		<CategoryList className="category-list" {...props} />
+		<FormCategory add={props.add} />
+	</Wrapper>
 );
 
 export default Category;
