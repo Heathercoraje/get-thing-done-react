@@ -42,7 +42,6 @@ class App extends Component {
 		});
 	};
 	deleteCategory = event => {
-		console.log('?');
 		const Categories = this.state.categories;
 		const PrevToDisplay = this.state.selectedCategory;
 		const Todos = this.state.todos;

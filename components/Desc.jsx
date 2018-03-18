@@ -56,7 +56,7 @@ class DescForm extends Component {
 							this.toggle();
 						}}
 					>
-						&nbsp;&#9997;
+						&nbsp;&#10000;
 					</button>
 				</div>
 				<form
