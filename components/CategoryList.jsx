@@ -6,7 +6,7 @@ const Wrapper = styled.div`
 	color: white;
 `;
 const CategoryList = ({ categories, ...props }) => (
-	<Wrapper>
+	<Wrapper className="category-list">
 		{categories.map(category => (
 			<CategoryItem key={category.id} {...props} {...category} />
 		))}

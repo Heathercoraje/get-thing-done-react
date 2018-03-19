@@ -20,10 +20,6 @@ p {
 	margin: 0;
 	padding: 0;
 }
-#root {
-	height: 100vh;
-	display: flex;
-}
 
 li {
 	list-style: none;
@@ -32,6 +28,17 @@ button,
 input {
 	outline: none;
 }
+input::placeholder {
+	color: #cacaca;
+}
+#root {
+	height: 100vh;
+	display: flex;
+}
+
+
+
+
 /* module*/
 .input-gen {
 	height: 1.4rem;
@@ -94,7 +101,7 @@ input {
 	display: inline;
 	text-shadow: 1.5px 1.5px 2px #191919;
 }
-.form {
+.form-cate {
 	margin-top: auto;
 }
 .input-cate {
@@ -104,6 +111,7 @@ input {
 }
 
 .input-field::placeholder {
+	color:#cacaca;
 	font-size: 1.3vw;
 }
 
@@ -129,8 +137,9 @@ input {
 }
 .input-desc,
 .input-desc::placeholder {
-	font-size: 1.5vw;
-	color: gray;
+	width: 26vw;
+	font-size: 1.3vw;
+	color: #cacaca;
 	font-family: 'Merriweather Sans', sans-serif;
 	font-style: oblique;
 	border: none;
@@ -139,7 +148,7 @@ input {
 }
 .desc {
 	word-wrap: break-word;
-	font-size: 1.5vw;
+	font-size: 1.3vw;
 	font-family: 'Merriweather Sans', sans-serif;
 	font-style: oblique;
 	color: gray;
@@ -173,12 +182,14 @@ input {
 	color: #393939;
 }
 
+
 /* Optional */
 
 .hide {
 	display: none;
 }
 .show {
+
 	display: block;
 }
 
@@ -200,4 +211,72 @@ input {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: #cacaca;
+}
+
+/* mobile first */
+
+@media only screen and (max-width:480px) {
+	.main-container {
+		display: flex;
+		height: 88%;
+		flex-flow: column nowrap;
+		flex: 0 0 88%;
+	}
+	.category-container {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		height: 20%
+	}
+	.logo {
+		font-size: 6.5vw;
+		margin-bottom: 0.8rem;
+	}
+
+	.category-list, .form-cate{
+		display: none;
+	}
+	.todo-container{
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		height: 80%;
+		justify-content: center;
+	}
+	.todo-name {
+		font-size: 6vw;
+	}
+	.desc, .input-desc, .input-desc::placeholder, .input-todo, .input-todo::placeholder {
+		font-size: 4.5vw;
+	}
+	.list-todo > li {
+		font-size: 4vw;
+	}
+	.input-todo {
+		width: 55vw;
+	}
+	.input-desc {
+		width: 60vw;
+	}
+
+}
+
+/* tablet and desktop */
+@media only screen and (min-width: 480px) {
+	.main-container{
+		width: 70%;
+		max-width: 780px;
+		height: 80%;
+		flex-flow: row nowrap;
+		justify-content:center;
+	}
+
+	.todo-container {
+		box-sizing: border-box;
+		border-top-right-radius: 0.2rem;
+		border-bottom-right-radius: 0.2rem;
+		background: white;
+		padding: 3rem 1.5rem 1.5rem 2.5rem;
+		flex: 0 0 65%;
+		height: 100%;
+
+	}
 }
