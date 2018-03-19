@@ -8,7 +8,7 @@ const FormCategory = ({ add }) => {
     HandleClickInput(evt, add, inputElement);
   };
   return (
-    <form className="form" onSubmit={onClickInput}>
+    <form className="form-cate" onSubmit={onClickInput}>
       <input
         placeholder=" New category"
         id="input-cate"

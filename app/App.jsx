@@ -5,11 +5,10 @@ import Todo from '../components/Todo';
 import CheckDupli from '../lib/CheckDupli';
 
 const Wrapper = styled.div`
-	width: 60%;
-	min-width: 60%;
-	height: 80%;
 	margin: auto auto;
+	display:flex;
 `;
+
 class App extends Component {
 	state = {
 		categories: [
@@ -83,7 +82,8 @@ class App extends Component {
 
 	render() {
 		return (
-			<Wrapper>
+			<Wrapper className="main-container">
+
 				<Category
 					click={this.clickCate}
 					categories={this.state.categories}
