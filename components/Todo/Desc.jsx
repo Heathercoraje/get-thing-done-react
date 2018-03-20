@@ -88,4 +88,4 @@ class DescForm extends Component {
 	}
 }
 
-export default Desc;
+export { Desc, DescForm };

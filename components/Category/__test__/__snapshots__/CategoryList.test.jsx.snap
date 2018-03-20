@@ -5,12 +5,6 @@ exports[`CategoryList should render as expected 1`] = `
   className="category-list"
 >
   <CategoryItem
-    description="Add description of category"
-    id={0}
-    key="0"
-    name="Todo"
-  />
-  <CategoryItem
     description="Things to do tonight"
     id={0}
     key="0"

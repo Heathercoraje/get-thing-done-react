@@ -24,4 +24,4 @@ const CategoryItem = props => (
 	</div>
 );
 
-export default CategoryList;
+export { CategoryList, CategoryItem };
