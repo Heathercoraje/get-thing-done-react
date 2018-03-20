@@ -44,6 +44,7 @@ class DescForm extends Component {
 	render() {
 		const name = this.props.name;
 		const description = this.props.description;
+
 		return (
 			<div>
 				<div className="cate-title">
