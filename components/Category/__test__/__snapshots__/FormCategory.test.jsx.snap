@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormCategory should render as expected 1`] = `
+<form
+  className="form-cate"
+  onSubmit={[Function]}
+>
+  <input
+    className="input-gen input-cate"
+    id="input-cate"
+    placeholder=" New category"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
+  <input
+    className="button-add"
+    type="submit"
+    value="+"
+  />
+</form>
+`;

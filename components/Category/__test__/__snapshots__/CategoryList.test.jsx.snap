@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryList should render as expected 1`] = `
+<styled.div
+  className="category-list"
+>
+  <CategoryItem
+    description="Add description of category"
+    id={0}
+    key="0"
+    name="Todo"
+  />
+  <CategoryItem
+    description="Things to do tonight"
+    id={0}
+    key="0"
+    name="Tonight"
+  />
+</styled.div>
+`;
