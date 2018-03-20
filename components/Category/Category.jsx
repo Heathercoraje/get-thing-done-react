@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CategoryList from './CategoryList';
+import { CategoryList } from './CategoryList';
 import FormCategory from './FormCategory';
 
 const Wrapper = styled.div`

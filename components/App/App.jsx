@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Category from '../components/Category';
-import Todo from '../components/Todo';
-import CheckDupli from '../lib/CheckDupli';
+import Category from '../Category/Category';
+import Todo from '../Todo/Todo';
+import CheckDupli from '../../lib/CheckDupli';
 
 const Wrapper = styled.div`
 	margin: auto auto;
@@ -40,15 +40,15 @@ class App extends Component {
 			todos: Todos
 		});
 	};
-	deleteCategory = event => {
+	deleteCategory = evt => {
 		const Categories = this.state.categories;
 		const PrevToDisplay = this.state.selectedCategory;
 		const Todos = this.state.todos;
 		const newCategories = Categories.filter(
-			category => category.id !== Number(event.target.value)
+			category => category.id !== Number(evt.target.value)
 		);
 		const toDisplay =
-			Number(event.target.value) === PrevToDisplay
+			Number(evt.target.value) === PrevToDisplay
 				? PrevToDisplay - 1
 				: newCategories.length - 1;
 		this.setState({
@@ -74,7 +74,13 @@ class App extends Component {
 		});
 	};
 	clickCate = evt => {
-		const toDisplay = evt.target.value;
+		const name = evt.target.dataset.name;
+		let toDisplay;
+		const test = this.state.categories.map((category, index) => {
+			if (category.name === name) {
+				toDisplay = index;
+			}
+		});
 		this.setState({
 			selectedCategory: toDisplay
 		});

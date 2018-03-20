@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HandleClickInput from '../lib/HandleClickInput';
+import HandleClickInput from '../../lib/HandleClickInput';
 
 const FormCategory = ({ add }) => {
   const onClickInput = (evt) => {

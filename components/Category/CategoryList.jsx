@@ -15,7 +15,7 @@ const CategoryList = ({ categories, ...props }) => (
 
 const CategoryItem = props => (
 	<div className="category-div">
-		<li onClick={props.click} value={props.id} className="category-text">
+		<li onClick={props.click} value={props.id} data-name={props.name} className="category-text">
 			{props.name}
 		</li>
 		<button className="button-delete" onClick={props.delete} value={props.id}>
@@ -24,4 +24,4 @@ const CategoryItem = props => (
 	</div>
 );
 
-export default CategoryList;
+export { CategoryList, CategoryItem };
