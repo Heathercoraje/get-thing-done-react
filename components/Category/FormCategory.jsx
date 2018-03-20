@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HandleClickInput from '../lib/HandleClickInput';
+import HandleClickInput from '../../lib/HandleClickInput';
 
 const FormCategory = ({ add }) => {
   const onClickInput = (evt) => {
@@ -8,7 +8,7 @@ const FormCategory = ({ add }) => {
     HandleClickInput(evt, add, inputElement);
   };
   return (
-    <form className="form" onSubmit={onClickInput}>
+    <form className="form-cate" onSubmit={onClickInput}>
       <input
         placeholder=" New category"
         id="input-cate"
