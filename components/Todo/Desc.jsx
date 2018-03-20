@@ -37,11 +37,6 @@ class DescForm extends Component {
 		this.setState({
 			edit: !prev
 		});
-		setTimeout(() => {
-			if(this.state.edit) {
-				this.ref.focus();
-			}
-		});
 	};
 
 	render() {
@@ -64,6 +59,7 @@ class DescForm extends Component {
 							type="text"
 							placeholder={description}
 							onBlur={evt => this.props.HandleDesc(evt)}
+							autoFocus
 						/>
 						<input style={{ display: 'none' }} type="submit" />
 					</form>
@@ -93,4 +89,4 @@ const Header = props => {
 	);
 };
 
-export { Desc, DescForm, Header};
+export { Desc, DescForm, Header };
