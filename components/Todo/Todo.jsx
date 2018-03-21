@@ -4,11 +4,6 @@ import TodoList from './TodoList';
 import FormTodo from './FormTodo';
 
 const Wrapper = styled.div`
-	// box-sizing: border-box;
-	// border-top-right-radius: 0.2rem;
-	// border-bottom-right-radius: 0.2rem;
-  // flex: 0 0 65%;
-  // height: 100%;
   padding: 3rem 1.5rem 1.5rem 2.5rem;
 	background: white;
 	display: flex;
