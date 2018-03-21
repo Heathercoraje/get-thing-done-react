@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTodo should render correctly 1`] = `
+<styled.div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="input-gen input-todo"
+      id="input-todo"
+      placeholder="Enter a new task"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    />
+    <input
+      className="button-add"
+      type="submit"
+      value="+"
+    />
+  </form>
+</styled.div>
+`;

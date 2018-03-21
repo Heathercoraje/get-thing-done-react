@@ -6,7 +6,7 @@ import CheckDupli from '../../lib/CheckDupli';
 
 const Wrapper = styled.div`
 	margin: auto auto;
-	display:flex;
+	display: flex;
 `;
 
 class App extends Component {
@@ -89,7 +89,6 @@ class App extends Component {
 	render() {
 		return (
 			<Wrapper className="main-container">
-
 				<Category
 					click={this.clickCate}
 					categories={this.state.categories}

@@ -8,20 +8,25 @@ const Wrapper = styled.div`
 const CategoryList = ({ categories, ...props }) => (
 	<Wrapper className="category-list">
 		{categories.map(category => (
-			<CategoryItem key={category.id} {...props} {...category} />
+    <CategoryItem key={category.id} {...props} {...category} />
 		))}
-	</Wrapper>
+  </Wrapper>
 );
 
 const CategoryItem = props => (
 	<div className="category-div">
-		<li onClick={props.click} value={props.id} data-name={props.name} className="category-text">
+		<li
+			onClick={props.click}
+			value={props.id}
+			data-name={props.name}
+			className="category-text"
+		>
 			{props.name}
-		</li>
+  </li>
 		<button className="button-delete" onClick={props.delete} value={props.id}>
 			&#8854;
-		</button>
-	</div>
+  </button>
+  </div>
 );
 
 export { CategoryList, CategoryItem };

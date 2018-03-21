@@ -15,10 +15,10 @@ const Wrapper = styled.div`
 
 const Category = props => (
 	<Wrapper className="category-container">
-	 <h3 className="logo">Get Things Done</h3>
-		<CategoryList  {...props} />
+		<h3 className="logo">Get Things Done</h3>
+		<CategoryList {...props} />
 		<FormCategory add={props.add} />
-	</Wrapper>
+  </Wrapper>
 );
 
 export default Category;

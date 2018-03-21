@@ -13,11 +13,11 @@ class Desc extends Component {
 		return (
 			<DescBox className="desc-box">
 				<DescForm
-					name={name}
+    name={name}
 					description={description}
-					HandleDesc={this.props.HandleDesc}
-				/>
-			</DescBox>
+    HandleDesc={this.props.HandleDesc}
+  />
+  </DescBox>
 		);
 	}
 }
@@ -47,13 +47,13 @@ class DescForm extends Component {
 				<div>
 					<Header name={name} toggle={this.toggle} />
 					<form
+						className="form-desc"
 						onSubmit={evt => {
 							this.props.HandleDesc(evt);
 							this.toggle();
 						}}
 					>
 						<input
-							ref={c => (this.ref = c)}
 							size="22"
 							className="input-desc"
 							type="text"
@@ -82,7 +82,7 @@ const Header = props => {
 	return (
 		<div className="cate-title">
 			<h1 className="todo-name">{props.name}</h1>
-			<button className="button-edit" onClick={props.toggle}>
+			<button type="button" className="button-edit" onClick={props.toggle}>
 				&nbsp;&#10000;
 			</button>
 		</div>

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category renders correctly 1`] = `
+<styled.div
+  className="category-container"
+>
+  <h3
+    className="logo"
+  >
+    Get Things Done
+  </h3>
+  <CategoryList />
+  <FormCategory />
+</styled.div>
+`;
