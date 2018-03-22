@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correrly 1`] = `
+<styled.div
+  className="main-container"
+>
+  <Category
+    add={[Function]}
+    categories={
+      Array [
+        Object {
+          "description": "Add description of category",
+          "id": 0,
+          "name": "Todo",
+        },
+      ]
+    }
+    click={[Function]}
+    delete={[Function]}
+    selected={0}
+  />
+  <Todo
+    HandleDesc={[Function]}
+    categories={
+      Array [
+        Object {
+          "description": "Add description of category",
+          "id": 0,
+          "name": "Todo",
+        },
+      ]
+    }
+    selected={0}
+  />
+</styled.div>
+`;

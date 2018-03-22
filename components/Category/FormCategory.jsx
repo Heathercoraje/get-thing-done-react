@@ -9,14 +9,14 @@ const FormCategory = ({ add }) => {
 	};
 	return (
 		<form className="form-cate" onSubmit={onClickInput}>
-    <input
+			<input
 				placeholder=" New category"
 				id="input-cate"
 				style={{ display: 'none' }}
 				className="input-gen input-cate"
-  />
+			/>
 			<input type="submit" value="+" className="button-add" />
-  </form>
+		</form>
 	);
 };
 

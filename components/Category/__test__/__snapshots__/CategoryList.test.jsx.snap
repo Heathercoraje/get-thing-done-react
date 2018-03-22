@@ -13,25 +13,6 @@ exports[`Category should render one CategoryItem 1`] = `
 </styled.div>
 `;
 
-exports[`CategoryItem should have correct length 1`] = `
-<styled.div
-  className="category-list"
->
-  <CategoryItem
-    description="nothing"
-    id={1}
-    key="1"
-    name="shopping"
-  />
-  <CategoryItem
-    description="coding practice"
-    id={2}
-    key="2"
-    name="programming"
-  />
-</styled.div>
-`;
-
 exports[`CategoryList should render nothing when passing empty data set 1`] = `
 <styled.div
   className="category-list"

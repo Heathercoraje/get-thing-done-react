@@ -35,14 +35,11 @@ test('CategoryList should contain one CategoryItem element', () => {
 	).toBe(true);
 });
 
-// test below is not finished
-test('CategoryItem should have correct length', () => {
+test('When passing props, CategoryItem should have correct length', () => {
 	let categories = [
 		{ id: 1, name: 'shopping', description: 'nothing' },
 		{ id: 2, name: 'programming', description: 'coding practice' }
 	];
 	let component = shallow(<CategoryList categories={categories} />);
-	let tree = toJson(component);
-	expect(tree).toMatchSnapshot();
-	// expect(component.length).toBe(2);
+	expect(component.find('CategoryItem').length).toBe(2);
 });
