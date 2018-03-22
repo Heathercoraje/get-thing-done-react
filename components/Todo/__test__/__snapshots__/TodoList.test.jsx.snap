@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList should render empty Renderlist when given empty todo 1`] = `
+<styled.div>
+  <Desc
+    description="things to do"
+    name="todo"
+  />
+  <div />
+</styled.div>
+`;
+
+exports[`TodoList should render one TodoItem 1`] = `
+<styled.div>
+  <Desc
+    description="things to do"
+    name="todo"
+  />
+  <div>
+    <TodoItem
+      id={0}
+      isDone={false}
+      key="0"
+      todo="be awesome"
+      value={0}
+    />
+  </div>
+</styled.div>
+`;

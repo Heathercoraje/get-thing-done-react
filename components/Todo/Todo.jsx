@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import TodoList from './TodoList';
+import { TodoList } from './TodoList';
 import FormTodo from './FormTodo';
 
 const Wrapper = styled.div`
-	// box-sizing: border-box;
-	// border-top-right-radius: 0.2rem;
-	// border-bottom-right-radius: 0.2rem;
-  // flex: 0 0 65%;
-  // height: 100%;
   padding: 3rem 1.5rem 1.5rem 2.5rem;
 	background: white;
 	display: flex;
@@ -112,7 +107,7 @@ class Todo extends Component {
 					HandleDesc={this.props.HandleDesc}
 					delete={this.deleteTodo}
 					complete={this.completeTodo}
-				/>{' '}
+    />{' '}
 				<FormTodo add={this.addTodo} selected={selected} />{' '}
 			</Wrapper>
 		);

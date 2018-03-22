@@ -43,11 +43,12 @@ const TodoItem = props => (
 			id={props.id}
 			onClick={props.complete}
 			value={props.value}
-			style={!props.isDone ? null : { textDecoration: 'line-through' }}
+			style={!props.isDone ?
+			null : { textDecoration: 'line-through' }}
 		>
 			{props.todo}
 		</li>
 	</div>
 );
 
-export default TodoList;
+export { TodoList, TodoItem };

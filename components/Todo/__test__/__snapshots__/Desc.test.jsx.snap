@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Desc should render correctly 1`] = `
+<div>
+  <Header
+    toggle={[Function]}
+  />
+  <div
+    className="testing"
+    id="desc"
+    onClick={[Function]}
+  />
+</div>
+`;

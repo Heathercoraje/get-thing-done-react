@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CategoryList should render as expected 1`] = `
+exports[`Category should render one CategoryItem 1`] = `
 <styled.div
   className="category-list"
 >
@@ -11,4 +11,10 @@ exports[`CategoryList should render as expected 1`] = `
     name="Tonight"
   />
 </styled.div>
+`;
+
+exports[`CategoryList should render nothing when passing empty data set 1`] = `
+<styled.div
+  className="category-list"
+/>
 `;

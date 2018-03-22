@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo renders correctly 1`] = `
+<styled.div
+  className="todo-container"
+>
+  <TodoList
+    categories={
+      Array [
+        Object {
+          "description": "shopping list",
+          "id": 0,
+          "name": "shopping",
+        },
+      ]
+    }
+    complete={[Function]}
+    delete={[Function]}
+    name="shopping"
+    selected={0}
+  />
+   
+  <FormTodo
+    add={[Function]}
+    selected={0}
+  />
+   
+</styled.div>
+`;
+
+exports[`when categorylist is empty, it returns \`Add new category\` message 1`] = `
+<styled.div>
+  <h3>
+     Add a new category 
+  </h3>
+   
+</styled.div>
+`;
