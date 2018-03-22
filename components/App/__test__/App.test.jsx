@@ -18,7 +18,7 @@ test('App has Category and Todo components', () => {
 			<div>
 				<Category />
 				<Todo />
-  </div>
+			</div>
 		])
 	).toBe(true);
 });

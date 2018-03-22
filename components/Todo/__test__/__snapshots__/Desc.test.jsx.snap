@@ -6,6 +6,7 @@ exports[`Desc should render correctly 1`] = `
     toggle={[Function]}
   />
   <div
+    className="testing"
     id="desc"
     onClick={[Function]}
   />

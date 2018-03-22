@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import TodoList from './TodoList';
+import { TodoList } from './TodoList';
 import FormTodo from './FormTodo';
 
 const Wrapper = styled.div`
@@ -107,7 +107,7 @@ class Todo extends Component {
 					HandleDesc={this.props.HandleDesc}
 					delete={this.deleteTodo}
 					complete={this.completeTodo}
-				/>{' '}
+    />{' '}
 				<FormTodo add={this.addTodo} selected={selected} />{' '}
 			</Wrapper>
 		);

@@ -13,11 +13,11 @@ class Desc extends Component {
 		return (
 			<DescBox className="desc-box">
 				<DescForm
-    name={name}
+					name={name}
 					description={description}
-    HandleDesc={this.props.HandleDesc}
-  />
-  </DescBox>
+					HandleDesc={this.props.HandleDesc}
+				/>
+			</DescBox>
 		);
 	}
 }
@@ -69,7 +69,7 @@ class DescForm extends Component {
 			return (
 				<div>
 					<Header name={name} toggle={this.toggle} />
-					<div id="desc" onClick={this.toggle}>
+					<div className="testing" id="desc" onClick={this.toggle}>
 						{description}
 					</div>
 				</div>
