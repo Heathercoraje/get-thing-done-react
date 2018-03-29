@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react';
 import styled from 'styled-components';
 
@@ -20,6 +21,11 @@ class Desc extends Component {
 			</DescBox>
 		);
 	}
+}
+Desc.propTypes = {
+	name: PropTypes.string,
+	description: PropTypes.string,
+	HandleDesc: PropTypes.func
 }
 
 class DescForm extends Component {
@@ -47,7 +53,6 @@ class DescForm extends Component {
 				<div>
 					<Header name={name} toggle={this.toggle} />
 					<form
-						className="form-desc"
 						onSubmit={evt => {
 							this.props.HandleDesc(evt);
 							this.toggle();
@@ -78,15 +83,26 @@ class DescForm extends Component {
 	}
 }
 
-const Header = props => {
+DescForm.propTypes = {
+	name: PropTypes.string,
+	description:PropTypes.string,
+	HandleDesc: PropTypes.func
+}
+
+const Header = ({ name, toggle }) => {
 	return (
 		<div className="cate-title">
-			<h1 className="todo-name">{props.name}</h1>
-			<button type="button" className="button-edit" onClick={props.toggle}>
+			<h1 className="todo-name">{name}</h1>
+			<button type="button" className="button-edit" onClick={toggle}>
 				&nbsp;&#10000;
 			</button>
 		</div>
 	);
 };
+
+Header.propTypes = {
+	name: PropTypes.string,
+	toggle: PropTypes.func
+}
 
 export { Desc, DescForm, Header };

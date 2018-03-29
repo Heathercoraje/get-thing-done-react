@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import HandleClickInput from '../../lib/HandleClickInput';
 
@@ -27,4 +28,7 @@ const FormTodo = ({ add }) => {
 	);
 };
 
+FormTodo.propTypes = {
+	add: PropTypes.func
+}
 export default FormTodo;

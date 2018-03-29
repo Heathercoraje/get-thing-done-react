@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CategoryList } from './CategoryList';
 import FormCategory from './FormCategory';
@@ -20,5 +21,10 @@ const Category = props => (
 		<FormCategory add={props.add} />
   </Wrapper>
 );
+
+Category.propTypes = {
+	props: PropTypes.object,
+	add: PropTypes.func
+}
 
 export default Category;

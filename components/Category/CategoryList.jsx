@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 
 const Wrapper = styled.div`
 	padding-left: 0.6rem;
@@ -13,6 +15,12 @@ const CategoryList = ({ categories, ...props }) => (
   </Wrapper>
 );
 
+CategoryList.propTypes = {
+	props: PropTypes.object,
+	categories: PropTypes.array,
+	category: PropTypes.object,
+	id: PropTypes.number
+}
 const CategoryItem = props => (
 	<div className="category-div">
 		<li
@@ -28,5 +36,11 @@ const CategoryItem = props => (
   </button>
   </div>
 );
+CategoryItem.propTypes = {
+	id: PropTypes.number,
+	name: PropTypes.string,
+	click: PropTypes.func,
+	delete: PropTypes.func
+}
 
 export { CategoryList, CategoryItem };
