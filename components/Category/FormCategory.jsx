@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import HandleClickInput from '../../lib/HandleClickInput';
 
 const FormCategory = ({ add }) => {
@@ -20,4 +21,7 @@ const FormCategory = ({ add }) => {
 	);
 };
 
+FormCategory.propTypes = {
+	add: PropTypes.func
+}
 export default FormCategory;

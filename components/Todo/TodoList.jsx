@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Desc } from './Desc';
 
@@ -34,6 +35,15 @@ const TodoList = props => {
 	);
 };
 
+TodoList.propTypes = {
+	todos: PropTypes.array,
+	categories: PropTypes.array,
+	selected: PropTypes.number,
+	name: PropTypes.string,
+	delete: PropTypes.func,
+	complete: PropTypes.func,
+	HandleDesc: PropTypes.func
+}
 const TodoItem = props => (
 	<div key={props.id} className="list-todo">
 		<button className="checkbox" onClick={props.delete} value={props.value}>
@@ -50,5 +60,14 @@ const TodoItem = props => (
 		</li>
 	</div>
 );
+
+TodoItem.propTypes = {
+	todo: PropTypes.string,
+	id: PropTypes.number,
+	value: PropTypes.string,
+	isDone: PropTypes.bool,
+	delete: PropTypes.func,
+	complete: PropTypes.func
+}
 
 export { TodoList, TodoItem };

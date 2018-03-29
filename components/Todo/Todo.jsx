@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TodoList } from './TodoList';
 import FormTodo from './FormTodo';
@@ -108,10 +109,16 @@ class Todo extends Component {
 					delete={this.deleteTodo}
 					complete={this.completeTodo}
     />{' '}
-				<FormTodo add={this.addTodo} selected={selected} />{' '}
+				<FormTodo add={this.addTodo} />{' '}
 			</Wrapper>
 		);
 	}
+}
+
+Todo.propTypes = {
+  categories: PropTypes.array,
+  selected: PropTypes.number,
+  HandleDesc: PropTypes.func,
 }
 
 export default Todo;
