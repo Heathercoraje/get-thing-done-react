@@ -64,7 +64,7 @@ const TodoItem = props => (
 TodoItem.propTypes = {
 	todo: PropTypes.string,
 	id: PropTypes.number,
-	value: PropTypes.string,
+	value: PropTypes.number,
 	isDone: PropTypes.bool,
 	delete: PropTypes.func,
 	complete: PropTypes.func
