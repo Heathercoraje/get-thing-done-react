@@ -22,7 +22,6 @@ exports[`Todo renders correctly 1`] = `
    
   <FormTodo
     add={[Function]}
-    selected={0}
   />
    
 </styled.div>
