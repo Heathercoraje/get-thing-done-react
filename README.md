@@ -13,4 +13,4 @@ Thanks for using my app!
 * Remove a todo item by clicking a check-box button on the right side of task.
 * Check as complete (indicated as line-crossed) by clicking each item.
 
-<img src="assets/product.png" width="400px" height="300px" />
+<img src="assets/product.png" width="500px" height="380px" />
