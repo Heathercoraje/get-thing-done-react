@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TodoList } from './TodoList';
 import FormTodo from './FormTodo';
+import localStorageApi from '../../lib/localStorageApi';
+
 
 const Wrapper = styled.div`
   padding: 3rem 1.5rem 1.5rem 2.5rem;
@@ -15,6 +17,13 @@ class Todo extends Component {
 	state = {
 		todos: {}
 	};
+
+  componentWillMount () {
+    localStorageApi.loadTodos().then((todos)=>{
+      console.log('Fetching your data, friend.');
+      this.setState({todos});
+    });
+  }
 
 	componentWillReceiveProps(Nextprops) {
 		this.updateTodoObj(Nextprops);
@@ -51,9 +60,12 @@ class Todo extends Component {
 			isDone: false
 		};
 		Todo.push(newTodo);
-		this.setState({
-			todos: allTodos
-		});
+    localStorageApi.modifyTodos(allTodos).then(()=>{
+      this.setState({
+        todos: allTodos
+      });
+      console.log('todo item added');
+    });
 	};
 	deleteTodo = evt => {
 		const allTodos = this.state.todos;
@@ -64,9 +76,13 @@ class Todo extends Component {
 			todo => todo.id !== Number(evt.target.value)
 		);
 		allTodos[`${name}`] = newTodos;
-		this.setState({
-			todos: allTodos
-		});
+    localStorageApi.modifyTodos(allTodos).then(()=>{
+      this.setState({
+        todos: allTodos
+      });
+      console.log('todo item deleted');
+    });
+
 	};
 	completeTodo = evt => {
 		const allTodos = this.state.todos;
@@ -82,9 +98,13 @@ class Todo extends Component {
 			}
 		});
 		allTodos[`${name}`] = targetTodoArr;
-		this.setState({
-			todos: allTodos
-		});
+    localStorageApi.modifyTodos(allTodos).then(()=>{
+      this.setState({
+        todos: allTodos
+      });
+      console.log('todo item completed');
+    });
+
 	};
 
 	render() {

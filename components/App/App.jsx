@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Category from '../Category/Category';
 import Todo from '../Todo/Todo';
 import CheckDupli from '../../lib/CheckDupli';
+import localStorageApi from '../../lib/localStorageApi';
 
 const Wrapper = styled.div`
 	margin: auto auto;
@@ -17,6 +18,11 @@ class App extends Component {
 		selectedCategory: 0
 	};
 
+	componentWillMount () {
+		localStorageApi.loadCategories().then(categories => {
+			this.setState({categories});
+		});
+	}
 	addCategory = event => {
 		const Categories = this.state.categories;
 		const Todos = this.state.todos;
@@ -34,11 +40,16 @@ class App extends Component {
 		};
 		Categories.push(newCategory);
 		const toDisplay = Categories.length - 1;
-		this.setState({
-			categories: Categories,
-			selectedCategory: toDisplay,
-			todos: Todos
-		});
+		localStorageApi.modifyCategory(Categories).then(()=>{
+			console.log('category added');
+			this.setState({
+				categories: Categories,
+				selectedCategory: toDisplay,
+				todos: Todos
+			});
+		}).catch(()=>{
+			console.log('Try again');
+		})
 	};
 	deleteCategory = evt => {
 		if (Number(evt.target.value) === 0) return;
@@ -52,9 +63,14 @@ class App extends Component {
 			Number(evt.target.value) === PrevToDisplay
 				? PrevToDisplay - 1
 				: newCategories.length - 1;
-		this.setState({
-			categories: newCategories,
-			selectedCategory: toDisplay
+		localStorageApi.modifyCategory(newCategories).then(()=>{
+			this.setState({
+				categories: newCategories,
+				selectedCategory: toDisplay
+			});
+			console.log('category deleted');
+		}).catch(()=>{
+			console.log('Delete again');
 		});
 	};
 	HandleDesc = evt => {
@@ -66,12 +82,14 @@ class App extends Component {
 		};
 
 		evt.target.value = '';
+		const newCategories = [
+			...categories.slice(0, selectedCategory),
+			updatedCategory,
+			...categories.slice(selectedCategory + 1)
+		]
+		localStorageApi.modifyCategory(newCategories)
 		this.setState({
-			categories: [
-				...categories.slice(0, selectedCategory),
-				updatedCategory,
-				...categories.slice(selectedCategory + 1)
-			]
+			categories: newCategories
 		});
 	};
 	clickCate = evt => {
