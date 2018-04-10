@@ -1,20 +1,16 @@
 # Get-Things-Done-react :white_check_mark:
 
-Get Things Done is a simple Todo application.
+Get Things Done is a simple Todo application. </br>
+It offers simple UI with a few intuitive functions to manage todos.</br>
+Your data persists, so feel free to close current tab and come back anytime.
 
-Get Things Done offers simple UI on beautiful background image with several functions to manage a todo list.
+Click to start using [getThingsDone](getThingsDone.surge.sh).</br>
+Thanks for using my app!
 
-#### User can ...
+* Click blue `+` button on left side to add a new category.
+* Click blue `+` button on right side to add a new todo item.
+* Click categories to traverse todos in each category.
+* Remove a todo item by clicking a check-box button on the right side of task.
+* Check as complete (indicated as line-crossed) by clicking each item.
 
-* Add a todo item to each category.
-* Create a new category and add todo lists.
-* Remove a todo by clicking `Delete` button on the right side of task.
-* Check as done by clicking `Complete` button next to delete button.
-
----
-
-#### Prototype
-
-The project is still in development process. Below is a rough design prototype of the project.
-
-<img src="assets/getThingsDone.png" width="450px" height="350px" />
+<img src="assets/product.png" width="400px" height="300px" />
