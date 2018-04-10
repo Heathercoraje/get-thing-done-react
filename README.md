@@ -12,5 +12,5 @@ Your data persists, so feel free to close current tab and come back anytime.
 * Remove a todo item by clicking a check-box button on the right side of task.
 * Check as complete (indicated as line-crossed) by clicking each item.
 
-Click to start using [getThingsDone](getThingsDone.surge.sh).</br>
+Click to start using [getThingsDone](http://getThingsDone.surge.sh).</br>
 Thanks for using my app! :heart:
