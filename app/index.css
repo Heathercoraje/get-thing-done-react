@@ -36,9 +36,6 @@ input::placeholder {
 	display: flex;
 }
 
-
-
-
 /* module*/
 .input-gen {
 	height: 1.4rem;
@@ -111,7 +108,7 @@ input::placeholder {
 }
 
 .input-field::placeholder {
-	color:#cacaca;
+	color: #cacaca;
 	font-size: 1.3vw;
 }
 
@@ -155,6 +152,7 @@ input::placeholder {
 	cursor: pointer;
 	text-transform: capitalize;
 }
+
 .todo-name {
 	font-size: 2.3vw;
 	margin-bottom: 1vh;
@@ -205,7 +203,7 @@ input::placeholder {
 
 /* mobile first */
 
-@media only screen and (max-width:480px) {
+@media only screen and (max-width: 480px) {
 	.main-container {
 		display: flex;
 		height: 88%;
@@ -215,17 +213,18 @@ input::placeholder {
 	.category-container {
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
-		height: 20%
+		height: 20%;
 	}
 	.logo {
 		font-size: 6.5vw;
 		margin-bottom: 0.8rem;
 	}
 
-	.category-list, .form-cate{
+	.category-list,
+	.form-cate {
 		display: none;
 	}
-	.todo-container{
+	.todo-container {
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 		height: 80%;
@@ -233,9 +232,12 @@ input::placeholder {
 	}
 	.todo-name {
 		font-size: 6vw;
-
 	}
-	.desc, .input-desc, .input-desc::placeholder, .input-todo, .input-todo::placeholder {
+	.desc,
+	.input-desc,
+	.input-desc::placeholder,
+	.input-todo,
+	.input-todo::placeholder {
 		font-size: 4.5vw;
 	}
 	.list-todo > li {
@@ -247,17 +249,16 @@ input::placeholder {
 	.input-desc {
 		width: 60vw;
 	}
-
 }
 
 /* tablet and desktop */
 @media only screen and (min-width: 480px) {
-	.main-container{
+	.main-container {
 		width: 70%;
 		max-width: 780px;
 		height: 80%;
 		flex-flow: row nowrap;
-		justify-content:center;
+		justify-content: center;
 	}
 
 	.todo-container {
