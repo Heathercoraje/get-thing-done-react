@@ -31,7 +31,7 @@ const CategoryItem = props => (
 		>
 			{props.name}
   </li>
-		<button className="button-delete" onClick={props.delete} value={props.id}>
+		<button className="button-delete" onClick={props.delete} value={props.id} data-name={props.name}>
 			&#8854;
   </button>
   </div>

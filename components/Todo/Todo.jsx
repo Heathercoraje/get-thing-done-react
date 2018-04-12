@@ -40,6 +40,7 @@ class Todo extends Component {
 			}
 			continue;
 		}
+    localStorageApi.modifyTodos(todoObj);
 		this.setState({
 			todos: todoObj
 		});
