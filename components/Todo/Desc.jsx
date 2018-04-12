@@ -74,7 +74,7 @@ class DescForm extends Component {
 			return (
 				<div>
 					<Header name={name} toggle={this.toggle} />
-					<div className="testing" id="desc" onClick={this.toggle}>
+					<div className="desc" id="desc" onClick={this.toggle}>
 						{description}
 					</div>
 				</div>
